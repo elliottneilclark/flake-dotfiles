@@ -14,7 +14,7 @@
       };
     };
 
-   outputs = inputs @ { self, nixpkgs, home-manager, ... }:
+   outputs = inputs @ { self, nixpkgs, home-manager, hyprland, ... }:
      let
        user = "elliott";
        location = "$HOME/.setup";
@@ -23,7 +23,7 @@
 	nixosConfigurations = (
           import ./modules/hosts {
             inherit (nixpkgs) lib;
-            inherit inputs nixpkgs home-manager user location;
+            inherit inputs nixpkgs home-manager user location hyprland;
           }
         );
      };

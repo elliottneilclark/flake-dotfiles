@@ -5,9 +5,13 @@
 { config, lib, pkgs, host, ... }:
 
 {
-  imports = [ ../../programs/waybar.nix ];
-
   environment = {
+    loginShellInit = ''
+      if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+        exec Hyprland 
+      fi
+    ''; 
+
     variables = {
       XDG_CURRENT_DESKTOP="Hyprland";
       XDG_SESSION_TYPE="wayland";
@@ -48,7 +52,7 @@
   programs = {
     hyprland = {
       enable = true;
-      nvidiaPatches = true
+      nvidiaPatches = true;
     };
   };
 }

@@ -1,6 +1,6 @@
 #
 
-{ lib, inputs, nixpkgs, home-manager, user, location, ... }:
+{ lib, inputs, nixpkgs, home-manager, user, location, hyprland, ... }:
 
 let
   system = "x86_64-linux";
@@ -19,13 +19,15 @@ in
       inherit inputs user location;
     };
     modules = [
+      hyprland.nixosModules.default
       ../neovim
       ../steam
       ../waybar
       ../zsh
       ../docker
-      ../kde
       ../defaults
+      #../hyprland
+      ../kde
 
       # Add the per host specific modules
       ./desktop
@@ -40,7 +42,8 @@ in
           imports = [
 	    (import ./home.nix)
 	    (import ./desktop/home.nix)
-	    (import ../hyprland/home.nix)
+	    (import ../git/home.nix)
+	   # (import ../hyprland/home.nix)
 	  ];
         };
       }
