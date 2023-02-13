@@ -20,6 +20,8 @@ in
     };
     modules = [
       ../neovim
+      ../steam
+      ../waybar
       ../zsh
       ../docker
       ../kde
@@ -27,6 +29,7 @@ in
 
       # Add the per host specific modules
       ./desktop
+
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
@@ -34,7 +37,11 @@ in
           inherit user;
         };
 	home-manager.users.${user} = {
-          imports = [(import ./home.nix)] ++ [(import ./desktop/home.nix)];
+          imports = [
+	    (import ./home.nix)
+	    (import ./desktop/home.nix)
+	    (import ../hyprland/home.nix)
+	  ];
         };
       }
     ];

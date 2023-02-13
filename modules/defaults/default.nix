@@ -7,6 +7,20 @@
     shell = pkgs.zsh;
   };
 
+  fonts.fonts = with pkgs; [
+    carlito
+    vegur
+    source-code-pro
+    jetbrains-mono
+    font-awesome
+    corefonts
+    (nerdfonts.override {
+      fonts = [
+        "FiraCode"
+      ];
+    })
+  ];  
+
   services = {
     printing = {
       enable = true;
@@ -26,6 +40,7 @@
     };
   };
 
+  time.timeZone = "America/Chicago";
   environment = {
     variables = {
       TERMINAL = "alacritty";

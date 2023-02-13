@@ -4,9 +4,7 @@
 { config, lib, pkgs, user, ... }:
 
 { 
-  imports = [ 
-    ( import ../git) 
-  ];
+  imports = (import ../programs);
 
   home = {
     username = "${user}";

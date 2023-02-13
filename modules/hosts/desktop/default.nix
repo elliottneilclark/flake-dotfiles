@@ -1,11 +1,10 @@
-
-#
-#  Specific system configuration settings for desktop
-
-{ pkgs, lib, user, ... }:
+# Specific system configuration settings for desktop 
+{ pkgs, lib, user, config, ... }:
 
 {
-  imports = [(import ./hardware-configuration.nix)];
+  imports = [
+    (import ./hardware-configuration.nix)
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -21,6 +20,15 @@
     layout = "us";
     xkbVariant = "";
   };
+
+  hardware = {
+    opengl.enable = true;
+    nvidia = {
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      modesetting.enable = true;
+      powerManagement.enable = true;
+    };
+  };  
 
   networking.hostName = "anton";
 }
