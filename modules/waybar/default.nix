@@ -2,7 +2,7 @@
 # Bar
 #
 
-{ config, lib, pkgs, user, ...}:
+{ config, lib, pkgs, user, ... }:
 
 {
   config = lib.mkIf (config.programs.sway.enable) {
@@ -10,7 +10,8 @@
       waybar
     ];
 
-    nixpkgs.overlays = [                                      # Waybar needs to be compiled with the experimental flag for wlr/workspaces to work
+    nixpkgs.overlays = [
+      # Waybar needs to be compiled with the experimental flag for wlr/workspaces to work
       (self: super: {
         waybar = super.waybar.overrideAttrs (oldAttrs: {
           mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
@@ -18,12 +19,13 @@
       })
     ];
 
-    home-manager.users.${user} = {                           # Home-manager waybar config
+    home-manager.users.${user} = {
+      # Home-manager waybar config
       programs.waybar = {
         enable = true;
-        systemd ={
+        systemd = {
           enable = true;
-          target = "sway-session.target";                     # Needed for waybar to start automatically
+          target = "sway-session.target"; # Needed for waybar to start automatically
         };
 
         style = ''
@@ -98,29 +100,29 @@
           "sway/workspaces" = {
             format = "<span font='12'>{icon}</span>";
             format-icons = {
-              "1"="";
-              "2"="";
-              "3"="";
-              "4"="";
-              "5"="";
+              "1" = "";
+              "2" = "";
+              "3" = "";
+              "4" = "";
+              "5" = "";
             };
             all-outputs = true;
             persistent_workspaces = {
-               "1" = [];
-               "2" = [];
-               "3" = [];
-               "4" = [];
-               "5" = [];
+              "1" = [ ];
+              "2" = [ ];
+              "3" = [ ];
+              "4" = [ ];
+              "5" = [ ];
             };
           };
           "wlr/workspaces" = {
             format = "<span font='12'>{icon}</span>";
             format-icons = {
-              "1"="";
-              "2"="";
-              "3"="";
-              "4"="";
-              "5"="";
+              "1" = "";
+              "2" = "";
+              "3" = "";
+              "4" = "";
+              "5" = "";
             };
             all-outputs = true;
             active-only = false;
@@ -153,7 +155,7 @@
             };
             format = "{capacity}% <span font='11'>{icon}</span>";
             format-charging = "{capacity}% <span font='11'></span>";
-            format-icons = ["" "" "" "" ""];
+            format-icons = [ "" "" "" "" "" ];
             max-length = 25;
           };
           network = {

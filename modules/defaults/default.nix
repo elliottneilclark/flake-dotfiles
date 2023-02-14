@@ -7,19 +7,37 @@
     shell = pkgs.zsh;
   };
 
-  fonts.fonts = with pkgs; [
-    carlito
-    vegur
-    source-code-pro
-    jetbrains-mono
-    font-awesome
-    corefonts
-    (nerdfonts.override {
-      fonts = [
-        "FiraCode"
-      ];
-    })
-  ];  
+  fonts = {
+    fonts = with pkgs; [
+      # icon fonts
+      material-symbols
+
+      # normal fonts
+      jost
+      lexend
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      roboto
+
+      # nerdfonts
+      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+    ];
+
+    # use fonts specified by user rather than default ones
+    enableDefaultFonts = false;
+
+    # user defined fonts
+    # the reason there's Noto Color Emoji everywhere is to override DejaVu's
+    # B&W emojis that would sometimes show instead of some Color emojis
+    fontconfig.defaultFonts = {
+      serif = [ "Noto Serif" "Noto Color Emoji" ];
+      sansSerif = [ "Noto Sans" "Noto Color Emoji" ];
+      monospace = [ "JetBrainsMono Nerd Font" "Noto Color Emoji" ];
+      emoji = [ "Noto Color Emoji" ];
+    };
+  };
+
 
   services = {
     printing = {
@@ -57,7 +75,7 @@
   };
 
   nix = {
-    settings ={
+    settings = {
       auto-optimise-store = true;
     };
     gc = {
@@ -68,7 +86,7 @@
     package = pkgs.nixVersions.unstable;
     registry.nixpkgs.flake = inputs.nixpkgs;
     extraOptions = "experimental-features = nix-command flakes";
-  };  
+  };
 
   nixpkgs.config.allowUnfree = true;
   system = {

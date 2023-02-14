@@ -3,7 +3,7 @@
 
 { config, lib, pkgs, user, ... }:
 
-{ 
+{
   imports = (import ../programs);
 
   home = {
@@ -11,28 +11,21 @@
     homeDirectory = "/home/${user}";
 
     packages = with pkgs; [
-      btop              # Resource Manager
-      ranger            # File Manager
-      tldr              # Helper
+      btop
+      ranger # File Manager
+      tldr # Helper
 
       # Video/Audio
-      feh               # Image Viewer
-      mpv               # Media Player
-      pavucontrol       # Audio Control
+      feh # Image Viewer
+      pavucontrol # Audio Control
 
       # Apps
-      firefox           # Browser
-      google-chrome     # Browser
+      firefox # Browser
+      google-chrome # Browser
 
       # File Management
       gnome.file-roller # Archive Manager
-      okular            # PDF Viewer
-      pcmanfm           # File Manager
-      p7zip             # Zip Encryption
-      rsync             # Syncer - $ rsync -r dir1/ dir2/
-      unzip             # Zip Files
-      unrar             # Rar Files
-      zip               # Zip
+      okular # PDF Viewer
 
       # Needed for work
       slack
@@ -55,18 +48,18 @@
       oh-my-zsh = {
         enable = true;
         plugins = [ "git" "sudo" "docker" "kubectl" ];
-	theme = "crunch";
+        theme = "crunch";
       };
 
       shellAliases = {
-       ll = "ls -l";
-       ".." = "cd ..";
+        ll = "ls -l";
+        ".." = "cd ..";
       };
     };
 
   };
 
-  gtk = {                                     # Theming
+  gtk = {
     enable = true;
     theme = {
       name = "Dracula";
@@ -82,7 +75,7 @@
     };
   };
 
-  systemd.user.targets.tray = {               # Tray.target can not be found when xsession is not enabled. This fixes the issue.
+  systemd.user.targets.tray = {
     Unit = {
       Description = "Home Manager System Tray";
       Requires = [ "graphical-session-pre.target" ];

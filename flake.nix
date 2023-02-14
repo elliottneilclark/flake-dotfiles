@@ -14,18 +14,18 @@
       };
     };
 
-   outputs = inputs @ { self, nixpkgs, home-manager, hyprland, ... }:
-     let
-       user = "elliott";
-       location = "$HOME/.setup";
-     in
-     {
-	nixosConfigurations = (
-          import ./modules/hosts {
-            inherit (nixpkgs) lib;
-            inherit inputs nixpkgs home-manager user location hyprland;
-          }
-        );
-     };
+  outputs = inputs @ { self, nixpkgs, home-manager, hyprland, ... }:
+    let
+      user = "elliott";
+      location = "$HOME/.setup";
+    in
+    {
+      nixosConfigurations = (
+        import ./modules/hosts {
+          inherit (nixpkgs) lib;
+          inherit inputs nixpkgs home-manager user location hyprland;
+        }
+      );
+    };
 }
 

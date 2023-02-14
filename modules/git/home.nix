@@ -9,9 +9,9 @@
       userName = "Elliott Clark";
       userEmail = "elliott@batteriesincl.com";
       aliases = {
-       co = "checkout";
-       st = "status";
-       ll = "log -p";
+        co = "checkout";
+        st = "status";
+        ll = "log -p";
       };
     };
   };

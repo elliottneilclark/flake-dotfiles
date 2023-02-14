@@ -32,19 +32,20 @@ in
       # Add the per host specific modules
       ./desktop
 
-      home-manager.nixosModules.home-manager {
+      home-manager.nixosModules.home-manager
+      {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-	home-manager.extraSpecialArgs = {
+        home-manager.extraSpecialArgs = {
           inherit user;
         };
-	home-manager.users.${user} = {
+        home-manager.users.${user} = {
           imports = [
-	    (import ./home.nix)
-	    (import ./desktop/home.nix)
-	    (import ../git/home.nix)
-	   # (import ../hyprland/home.nix)
-	  ];
+            (import ./home.nix)
+            (import ./desktop/home.nix)
+            (import ../git/home.nix)
+            (import ../hyprland/home.nix)
+          ];
         };
       }
     ];

@@ -13,7 +13,7 @@
 
   security.polkit.enable = true;
   security.rtkit.enable = true;
-  
+
   # Configure keymap in X11
   services.xserver = {
     videoDrivers = [ "nvidia" ];
@@ -22,13 +22,19 @@
   };
 
   hardware = {
-    opengl.enable = true;
     nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.stable;
       modesetting.enable = true;
       powerManagement.enable = true;
     };
-  };  
+    opengl = {
+      enable = true;
+      driSupport = true;
+      extraPackages = with pkgs; [
+        nvidia-vaapi-driver
+      ];
+    };
+  };
 
   networking.hostName = "anton";
 }

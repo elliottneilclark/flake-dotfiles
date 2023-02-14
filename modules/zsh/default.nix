@@ -14,7 +14,7 @@
       ohMyZsh = {
         enable = true;
         plugins = [ "git" "sudo" "docker" "kubectl" ];
-	theme = "crunch";
+        theme = "crunch";
       };
 
     };
