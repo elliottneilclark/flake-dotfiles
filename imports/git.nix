@@ -4,6 +4,10 @@
 
 {
   programs = {
+    gh = {
+      enable = true;
+      enableGitCredentialHelper = true;
+    };
     git = {
       enable = true;
       userName = "Elliott Clark";
@@ -15,4 +19,8 @@
       };
     };
   };
+
+  xdg.configFile."git/ignore".text = ''
+    .direnv
+  '';
 }

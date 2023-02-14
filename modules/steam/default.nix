@@ -6,7 +6,6 @@
 
 {
   environment.systemPackages = [
-    pkgs.heroic
     pkgs.prismlauncher
   ];
 

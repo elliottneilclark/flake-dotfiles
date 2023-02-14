@@ -4,7 +4,15 @@
 { config, lib, pkgs, user, ... }:
 
 {
-  imports = (import ../programs);
+  imports = [
+    (import ../../imports/direnv.nix)
+    (import ../../imports/git.nix)
+    (import ../../imports/zsh.nix)
+    (import ../../imports/alacritty.nix)
+    (import ../../imports/picom.nix)
+    (import ../../imports/i3wm.nix)
+    (import ../../imports/random-background.nix)
+  ];
 
   home = {
     username = "${user}";
@@ -14,28 +22,24 @@
       btop
       ranger # File Manager
       tldr # Helper
-
-      # Video/Audio
       feh # Image Viewer
       pavucontrol # Audio Control
-
-      # Apps
       firefox # Browser
       google-chrome # Browser
-
-      # File Management
-      gnome.file-roller # Archive Manager
-      okular # PDF Viewer
-
-      # Needed for work
       slack
+      spotify
+      vscode
+      pavucontrol
+      tmux
+
+      unzip
+      zip
+      unrar
     ];
     pointerCursor = {
       gtk.enable = true;
       name = "Dracula-cursors";
-      #name = "Catppuccin-Mocha-Dark-Cursors";
       package = pkgs.dracula-theme;
-      #package = pkgs.catppuccin-cursors.mochaDark;
       size = 16;
     };
     stateVersion = "22.11";
@@ -43,20 +47,6 @@
 
   programs = {
     home-manager.enable = true;
-    zsh = {
-      enable = true;
-      oh-my-zsh = {
-        enable = true;
-        plugins = [ "git" "sudo" "docker" "kubectl" ];
-        theme = "crunch";
-      };
-
-      shellAliases = {
-        ll = "ls -l";
-        ".." = "cd ..";
-      };
-    };
-
   };
 
   gtk = {
@@ -70,7 +60,6 @@
       package = pkgs.papirus-icon-theme;
     };
     font = {
-      #name = "JetBrains Mono Medium";
       name = "FiraCode Nerd Font Mono Medium";
     };
   };

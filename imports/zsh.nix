@@ -1,25 +1,25 @@
 #
-# Zsh + Zsh Oh My
-#
 
-{ pkgs, ... }:
+{ user, config, lib, pkgs, host, ... }:
 
 {
   programs = {
     zsh = {
       enable = true;
-      enableCompletion = true;
-      histSize = 100000;
-
-      ohMyZsh = {
+      oh-my-zsh = {
         enable = true;
         plugins = [ "git" "sudo" "docker" "kubectl" ];
       };
 
-
+      shellAliases = {
+        ll = "ls -l";
+        ".." = "cd ..";
+      };
     };
+
     starship = {
       enable = true;
+      enableZshIntegration = true;
     };
   };
 }
