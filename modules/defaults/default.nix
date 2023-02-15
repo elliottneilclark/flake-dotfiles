@@ -7,6 +7,8 @@
     shell = pkgs.zsh;
   };
 
+  programs.ssh.startAgent = true;
+
   fonts = {
     fonts = with pkgs; [
       # icon fonts
