@@ -49,6 +49,12 @@
       sha256 = "0n1qzdrfw0ijw7n4xff517s6z5jmhj8hl561938n1ndq81qafldc";
     }
     {
+      name = "sapling-scm";
+      publisher = "meta";
+      version = "0.1.9";
+      sha256 = "0y1jyn0v7z34mllnjkmcfmvlqfg08xf1sasgq69g9v08bjyj8c91";
+    }
+    {
       name = "isort";
       publisher = "ms-python";
       version = "2023.9.10461023";
