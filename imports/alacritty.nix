@@ -9,8 +9,8 @@
       enable = true;
       settings = {
         font = rec {
-          normal.family = "FiraCode Nerd Font";
-          bold = { style = "Bold"; };
+          normal.family = "JetBrainsMono Nerd Font";
+          size = 14;
         };
         offset = {
           x = -1;

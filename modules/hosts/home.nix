@@ -12,6 +12,7 @@
     (import ../../imports/picom.nix)
     (import ../../imports/i3wm.nix)
     (import ../../imports/random-background.nix)
+    (import ../../imports/vscode.nix)
   ];
 
   home = {
@@ -19,6 +20,7 @@
     homeDirectory = "/home/${user}";
 
     packages = with pkgs; [
+      jq
       btop
       ranger # File Manager
       tldr # Helper
@@ -28,10 +30,9 @@
       google-chrome # Browser
       slack
       spotify
-      vscode
       pavucontrol
       tmux
-
+      sapling
       unzip
       zip
       unrar
@@ -60,7 +61,7 @@
       package = pkgs.papirus-icon-theme;
     };
     font = {
-      name = "FiraCode Nerd Font Mono Medium";
+      name = "JetBrainsMono Nerd Font";
     };
   };
 
