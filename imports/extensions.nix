@@ -37,6 +37,12 @@
       sha256 = "0br00867d2p0d7fjw8ska3anz16rfyhh3b2i6fpfi6qv8h3p46wj";
     }
     {
+      name = "vscode-elixir-snippets";
+      publisher = "florinpatrascu";
+      version = "0.2.40";
+      sha256 = "1nxgzhffadpm54w4f1f4bhj4s3f0cjl5maj5gdwa9p63fib86z1q";
+    }
+    {
       name = "elixir-ls";
       publisher = "JakeBecker";
       version = "0.13.0";
@@ -47,6 +53,12 @@
       publisher = "jamilabreu";
       version = "1.3.1";
       sha256 = "0n1qzdrfw0ijw7n4xff517s6z5jmhj8hl561938n1ndq81qafldc";
+    }
+    {
+      name = "rainbow-end";
+      publisher = "jduponchelle";
+      version = "0.7.12";
+      sha256 = "069a4987pyjavf5ajr8rxvg4nq7jac5h4s7b4ivh8ands6h9cfps";
     }
     {
       name = "sapling-scm";
@@ -115,6 +127,12 @@
       sha256 = "07zagq5ib9hd3w67yk2g728vypr4qazw0g9dyd5bax21shnmppa9";
     }
     {
+      name = "vscode-elixir-credo";
+      publisher = "pantajoe";
+      version = "0.8.2";
+      sha256 = "167iv8akgz1h4fgp8gm6yirmdb89daar18pny9jc32h5rm6nc706";
+    }
+    {
       name = "phoenix-liveview-snippets";
       publisher = "phoenix-liveview-snippets";
       version = "2.4.0";
@@ -129,14 +147,20 @@
     {
       name = "rust-analyzer";
       publisher = "rust-lang";
-      version = "0.3.1402";
-      sha256 = "tOpL0rycDfN0viuN0iK6/kQOEYQt8p4qSKFZ5fW/8Ho=";
+      version = "0.4.1405";
+      sha256 = "0j4iqbjkn44g1kgdjf62i03n2zgby0wv7rz9f29fidja80siacyg";
     }
     {
       name = "crates";
       publisher = "serayuzgur";
       version = "0.5.10";
       sha256 = "1dbhd6xbawbnf9p090lpmn8i5gg1f7y8xk2whc9zhg4432kdv3vd";
+    }
+    {
+      name = "vscode-lldb";
+      publisher = "vadimcn";
+      version = "1.8.1";
+      sha256 = "09396sha8cx7cq99nywrg30m5sijzhk8hxywncbjg7cgid5c9vjj";
     }
   ];
 }

@@ -26,6 +26,7 @@
       "workbench.startupEditor" = "none";
 
       "terminal.integrated.scrollback" = 5000;
+      "rust-analyzer.trace.extension" = true;
     };
     extensions = pkgs.vscode-utils.extensionsFromVscodeMarketplace
       (import ./extensions.nix).extensions;
