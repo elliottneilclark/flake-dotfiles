@@ -55,6 +55,12 @@
       sha256 = "0y1jyn0v7z34mllnjkmcfmvlqfg08xf1sasgq69g9v08bjyj8c91";
     }
     {
+      name = "vscode-docker";
+      publisher = "ms-azuretools";
+      version = "1.23.3";
+      sha256 = "05lxa03hh5rslg7351dw87zlrp4drqy1jmpms1aml0yn1jxfb9yj";
+    }
+    {
       name = "isort";
       publisher = "ms-python";
       version = "2023.9.10461023";
@@ -69,14 +75,14 @@
     {
       name = "vscode-pylance";
       publisher = "ms-python";
-      version = "2023.2.21";
-      sha256 = "0rnr9srs2cln3h5m5fqzzsvlr8sagcrgm2ims80rr75r55ym7714";
+      version = "2023.2.31";
+      sha256 = "1gpn1151977yyh98gks9zpipprf14l1mgfxyfdhwf6b3g2nq3n0w";
     }
     {
       name = "jupyter";
       publisher = "ms-toolsai";
-      version = "2023.2.1000471055";
-      sha256 = "151l63ij9zk3phfkr2k1lkdlhlnaz294zdq5sdxpzd89d16zbw9f";
+      version = "2023.2.1000481019";
+      sha256 = "0410jmwdvkq4xszhqn3lbbjkc9zddzcaki88cgk8zlj8884dirld";
     }
     {
       name = "jupyter-keymap";
