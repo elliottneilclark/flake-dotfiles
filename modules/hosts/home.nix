@@ -1,11 +1,12 @@
-#
-#  General Home-manager configuration
+# General Home-manager configuration
 
 { config, lib, pkgs, user, ... }:
 
 {
   imports = [
+    (import ../../imports/udiskie.nix)
     (import ../../imports/direnv.nix)
+    (import ../../imports/ssh.nix)
     (import ../../imports/git.nix)
     (import ../../imports/zsh.nix)
     (import ../../imports/alacritty.nix)
@@ -13,6 +14,9 @@
     (import ../../imports/i3wm.nix)
     (import ../../imports/random-background.nix)
     (import ../../imports/vscode.nix)
+    (import ../../imports/neovim.nix)
+    (import ../../imports/firefox.nix)
+    (import ../../imports/exa.nix)
   ];
 
   home = {
@@ -26,7 +30,6 @@
       tldr # Helper
       feh # Image Viewer
       pavucontrol # Audio Control
-      firefox # Browser
       google-chrome # Browser
       slack
       spotify
@@ -46,9 +49,7 @@
     stateVersion = "22.11";
   };
 
-  programs = {
-    home-manager.enable = true;
-  };
+  programs = { home-manager.enable = true; };
 
   gtk = {
     enable = true;
@@ -60,9 +61,7 @@
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
-    font = {
-      name = "JetBrainsMono Nerd Font";
-    };
+    font = { name = "JetBrainsMono Nerd Font"; };
   };
 
   systemd.user.targets.tray = {

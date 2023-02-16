@@ -1,4 +1,3 @@
-#
 # Zsh + Zsh Oh My
 #
 
@@ -16,10 +15,7 @@
         plugins = [ "git" "sudo" "docker" "kubectl" ];
       };
 
-
     };
-    starship = {
-      enable = true;
-    };
+    starship = { enable = true; };
   };
 }

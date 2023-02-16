@@ -1,4 +1,3 @@
-#
 # Terminal Emulator
 
 { pkgs, ... }:

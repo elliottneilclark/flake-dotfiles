@@ -1,4 +1,4 @@
-#
+
 
 { user, config, lib, pkgs, host, ... }:
 
@@ -11,10 +11,7 @@
         plugins = [ "git" "sudo" "docker" "kubectl" ];
       };
 
-      shellAliases = {
-        ll = "ls -l";
-        ".." = "cd ..";
-      };
+      shellAliases = { ".." = "cd .."; };
     };
 
     starship = {

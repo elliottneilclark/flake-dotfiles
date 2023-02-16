@@ -1,4 +1,3 @@
-#
 # i3wm
 #
 { config, lib, pkgs, ... }:
@@ -19,7 +18,8 @@
 
       lightdm = {
         enable = true; # Wallpaper and GTK theme
-        background = pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath;
+        background =
+          pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath;
         greeters = {
           gtk = {
             theme = {
@@ -40,4 +40,5 @@
   };
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.lightdm.enableGnomeKeyring = true;
+  environment.systemPackages = with pkgs; [ lxappearance ];
 }

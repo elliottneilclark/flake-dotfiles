@@ -1,9 +1,20 @@
 { config, lib, pkgs, ... }:
 let
   mod = "Mod4";
-in
-{
+  colors = import ./colors.nix;
+in {
   config = {
+
+    programs.i3status-rust = {
+      enable = true;
+      bars = {
+        default = {
+          theme = "dracula";
+          icons = "awesome5";
+        };
+      };
+    };
+
     xsession.windowManager.i3 = {
       enable = true;
       config = {
@@ -11,15 +22,46 @@ in
         terminal = "alacritty";
         fonts = {
           names = [ "JetBrainsMono Nerd Font" ];
-          size = 12.0;
+          size = 14.0;
         };
 
-        colors.focused = {
-          background = "#999999";
-          border = "#999999";
-          childBorder = "#999999";
-          indicator = "#212121";
-          text = "#999999";
+        colors = with colors.scheme.dracula; {
+          background = base07;
+          focused = {
+            background = base0D;
+            border = base0D;
+            childBorder = base0C;
+            indicator = base0D;
+            text = base00;
+          };
+          focusedInactive = {
+            background = base01;
+            border = base01;
+            childBorder = base01;
+            indicator = base03;
+            text = base05;
+          };
+          placeholder = {
+            background = base00;
+            border = base00;
+            childBorder = base00;
+            indicator = base00;
+            text = base05;
+          };
+          unfocused = {
+            background = base00;
+            border = base01;
+            childBorder = base01;
+            indicator = base01;
+            text = base05;
+          };
+          urgent = {
+            background = base08;
+            border = base08;
+            childBorder = base08;
+            indicator = base08;
+            text = base00;
+          };
         };
 
         window = {
@@ -29,16 +71,29 @@ in
         floating.criteria = [{ class = "Pavucontrol"; }];
 
         startup = [
-          { command = "systemctl --user restart polybar"; always = true; notification = false; }
-          { command = "autotiling -w 2 3 4 5 6 7 8 9"; always = true; notification = false; }
           {
-            command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+            command = "systemctl --user restart polybar";
+            always = true;
+            notification = false;
+          }
+          {
+            command = "autotiling -w 2 3 4 5 6 7 8 9";
+            always = true;
+            notification = false;
+          }
+          {
+            command =
+              "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
             always = true;
             notification = false;
           }
         ];
 
-        # bars = [ ];
+        bars = [{
+          position = "bottom";
+          statusCommand =
+            "i3status-rs $HOME/.config/i3status-rust/config-default.toml";
+        }];
 
         defaultWorkspace = "workspace number 1";
 
@@ -49,14 +104,10 @@ in
           smartGaps = false;
         };
 
-        focus = {
-          followMouse = false;
-        };
+        focus = { followMouse = false; };
       };
     };
-    home.packages = with pkgs; [
-      autotiling
-      i3lock-fancy
-    ];
+
+    home.packages = with pkgs; [ autotiling i3lock-fancy ];
   };
 }

@@ -1,14 +1,8 @@
-#
-#  Home-manager configuration for desktop
+# Home-manager configuration for desktop
 
 { pkgs, ... }:
 
 {
 
-  home = {
-    packages = with pkgs; [
-      # Applications
-      dconf
-    ];
-  };
+  home = { packages = with pkgs; [ ]; };
 }

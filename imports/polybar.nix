@@ -1,4 +1,3 @@
-#
 # Bar
 #
 
@@ -11,8 +10,7 @@ let
     pulseSupport = true;
     i3GapsSupport = true;
   };
-in
-{
+in {
   services = {
     polybar = {
       enable = true;

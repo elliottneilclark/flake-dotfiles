@@ -1,10 +1,8 @@
-# Specific system configuration settings for desktop 
+# Specific system configuration settings for desktop
 { pkgs, lib, user, config, ... }:
 
 {
-  imports = [
-    (import ./hardware-configuration.nix)
-  ];
+  imports = [ (import ./hardware-configuration.nix) ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -30,9 +28,7 @@
     opengl = {
       enable = true;
       driSupport = true;
-      extraPackages = with pkgs; [
-        nvidia-vaapi-driver
-      ];
+      extraPackages = with pkgs; [ nvidia-vaapi-driver ];
     };
   };
 

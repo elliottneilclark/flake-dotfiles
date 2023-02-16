@@ -1,4 +1,4 @@
-#
+
 
 { lib, inputs, nixpkgs, home-manager, user, location, ... }:
 
@@ -11,13 +11,10 @@ let
   };
 
   lib = nixpkgs.lib;
-in
-{
+in {
   desktop = lib.nixosSystem {
     inherit system;
-    specialArgs = {
-      inherit inputs user location;
-    };
+    specialArgs = { inherit inputs user location; };
     modules = [
 
       # These are the modules that always need to be there
@@ -26,6 +23,8 @@ in
       ../steam
       ../zsh
       ../docker
+      ../sound
+      ../fonts
       ../defaults
       ../i3wm
 
@@ -36,14 +35,9 @@ in
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = {
-          inherit user;
-        };
+        home-manager.extraSpecialArgs = { inherit user; };
         home-manager.users.${user} = {
-          imports = [
-            (import ./home.nix)
-            (import ./desktop/home.nix)
-          ];
+          imports = [ (import ./home.nix) (import ./desktop/home.nix) ];
         };
       }
     ];

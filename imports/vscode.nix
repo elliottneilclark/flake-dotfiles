@@ -3,10 +3,10 @@
 {
   programs.vscode = {
     enable = true;
+    mutableExtensionsDir = true;
     userSettings = {
       "telemetry.enableTelemetry" = false;
       "telemetry.enableCrashReporter" = false;
-
 
       "files.trimTrailingWhitespace" = true;
       "files.autoSave" = "onFocusChange";

@@ -1,13 +1,10 @@
-#
 # Docker
 #
 
 { config, pkgs, user, ... }:
 
 {
-  virtualisation = {
-    docker.enable = true;
-  };
+  virtualisation = { docker.enable = true; };
 
   users.groups.docker.members = [ "${user}" ];
 
@@ -17,7 +14,5 @@
   #  '';                                                           # Alias to easily start container
   #};
 
-  environment.systemPackages = with pkgs; [
-    docker-compose
-  ];
+  environment.systemPackages = with pkgs; [ docker-compose ];
 }
