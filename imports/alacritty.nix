@@ -9,11 +9,7 @@
       settings = {
         font = rec {
           normal.family = "JetBrainsMono Nerd Font";
-          size = 14;
-        };
-        offset = {
-          x = -1;
-          y = 0;
+          size = 12;
         };
       };
     };
