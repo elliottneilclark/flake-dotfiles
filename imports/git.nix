@@ -16,6 +16,8 @@
         st = "status";
         ll = "log -p";
       };
+      lfs.enable = true;
+      extraConfig = { init = { defaultBranch = "master"; }; };
     };
   };
 

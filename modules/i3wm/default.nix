@@ -38,7 +38,11 @@
     };
     windowManager.i3.enable = true;
   };
-  services.gnome.gnome-keyring.enable = true;
+
+  # Keys
   security.pam.services.lightdm.enableGnomeKeyring = true;
+  services.gnome.gnome-keyring.enable = true;
+  programs.seahorse.enable = true;
+
   environment.systemPackages = with pkgs; [ lxappearance ];
 }

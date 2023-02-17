@@ -3,7 +3,13 @@
 {
   programs.vscode = {
     enable = true;
+
+    package = pkgs.vscodium;
+
     mutableExtensionsDir = true;
+    enableUpdateCheck = false;
+    enableExtensionUpdateCheck = false;
+
     userSettings = {
       "telemetry.enableTelemetry" = false;
       "telemetry.enableCrashReporter" = false;
@@ -25,7 +31,7 @@
       "workbench.fontAliasing" = "antialiased";
       "workbench.startupEditor" = "none";
 
-      "terminal.integrated.scrollback" = 5000;
+      "terminal.integrated.scrollback" = 4000;
       "rust-analyzer.trace.extension" = true;
     };
     extensions = pkgs.vscode-utils.extensionsFromVscodeMarketplace

@@ -4,19 +4,58 @@
 
 {
   programs = {
+    fzf.enable = true;
+    fzf.enableZshIntegration = true;
+
     zsh = {
       enable = true;
-      oh-my-zsh = {
+
+      prezto = {
         enable = true;
-        plugins = [ "git" "sudo" "docker" "kubectl" ];
+        tmux = {
+          autoStartRemote = true;
+          autoStartLocal = false;
+        };
+        ssh.identities = [ "id_ed25519" ];
+        editor = { keymap = "vi"; };
+        color = true;
+        prompt.theme = "random";
+        pmodules = [
+          # Default modules
+          "environment"
+          "terminal"
+          "editor"
+          "history"
+          "directory"
+          "spectrum"
+          "utility"
+          "completion"
+          "prompt"
+
+          # extra
+          "history-substring-search"
+          "syntax-highlighting"
+          "tmux"
+          "docker"
+          "git"
+
+        ];
       };
 
-      shellAliases = { ".." = "cd .."; };
+      shellAliases = { 
+        ".." = "cd .."; 
+
+        # Re-assign this back to sl
+        # prezto above doesn't thing that you really ever mean sl
+        #
+        # So swap it back
+        "sl" = "${pkgs.sapling}/bin/sl";
+      };
     };
 
-    starship = {
-      enable = true;
-      enableZshIntegration = true;
-    };
+#    starship = {
+#      enable = true;
+#      enableZshIntegration = true;
+#    };
   };
 }

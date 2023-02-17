@@ -1,32 +1,39 @@
 
 
-{ lib, inputs, nixpkgs, home-manager, user, location, ... }:
+{ lib, inputs, nixpkgs, home-manager, user, location, rust-overlay, ... }:
 
 let
   system = "x86_64-linux";
 
+  overlays = [ (import rust-overlay) ];
   pkgs = import nixpkgs {
-    inherit system;
+    inherit system overlays;
     config.allowUnfree = true;
   };
 
   lib = nixpkgs.lib;
 in {
-  desktop = lib.nixosSystem {
-    inherit system;
+  anton = lib.nixosSystem {
+    inherit system pkgs;
     specialArgs = { inherit inputs user location; };
     modules = [
 
       # These are the modules that always need to be there
       # They have some system setup
       ../neovim
-      ../steam
       ../zsh
       ../docker
+      ../nix
+      ../defaults
+
+      # Specifics for desktop type machines.
+      # But need to be installed wide.
+      # Perfer to put things in home manager when possible.
+      ../i3wm
+      ../thunar
+      ../steam
       ../sound
       ../fonts
-      ../defaults
-      ../i3wm
 
       # Add the per host specific modules
       ./desktop

@@ -1,12 +1,6 @@
 {
   extensions = [
     {
-      name = "nix-env-selector";
-      publisher = "arrterian";
-      version = "1.0.9";
-      sha256 = "0kdfhkdkffr3cdxmj7llb9g3wqpm13ml75rpkwlg1y0pkxcnlk2f";
-    }
-    {
       name = "vscode-neovim";
       publisher = "asvetliakov";
       version = "0.0.97";
@@ -65,6 +59,12 @@
       publisher = "meta";
       version = "0.1.9";
       sha256 = "0y1jyn0v7z34mllnjkmcfmvlqfg08xf1sasgq69g9v08bjyj8c91";
+    }
+    {
+      name = "direnv";
+      publisher = "mkhl";
+      version = "0.10.1";
+      sha256 = "0m89sx1qqdkwa9pfmd9b11lp8z0dqpi6jn27js5q4ymscyg41bqd";
     }
     {
       name = "vscode-docker";
@@ -145,22 +145,10 @@
       sha256 = "1k7jy2gpmc5cyjy7sdp1scb47l6avcw0y0kah9d360r33x2hvrjg";
     }
     {
-      name = "rust-analyzer";
-      publisher = "rust-lang";
-      version = "0.4.1405";
-      sha256 = "0j4iqbjkn44g1kgdjf62i03n2zgby0wv7rz9f29fidja80siacyg";
-    }
-    {
       name = "crates";
       publisher = "serayuzgur";
       version = "0.5.10";
       sha256 = "1dbhd6xbawbnf9p090lpmn8i5gg1f7y8xk2whc9zhg4432kdv3vd";
-    }
-    {
-      name = "vscode-lldb";
-      publisher = "vadimcn";
-      version = "1.8.1";
-      sha256 = "09396sha8cx7cq99nywrg30m5sijzhk8hxywncbjg7cgid5c9vjj";
     }
   ];
 }
