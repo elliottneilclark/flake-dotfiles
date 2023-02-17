@@ -42,8 +42,8 @@
         ];
       };
 
-      shellAliases = { 
-        ".." = "cd .."; 
+      shellAliases = {
+        ".." = "cd ..";
 
         # Re-assign this back to sl
         # prezto above doesn't thing that you really ever mean sl
@@ -52,10 +52,5 @@
         "sl" = "${pkgs.sapling}/bin/sl";
       };
     };
-
-#    starship = {
-#      enable = true;
-#      enableZshIntegration = true;
-#    };
   };
 }
