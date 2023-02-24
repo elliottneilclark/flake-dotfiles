@@ -1,5 +1,3 @@
-
-
 { user, config, lib, pkgs, host, ... }:
 
 {

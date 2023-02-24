@@ -1,7 +1,12 @@
 { config, lib, pkgs, user, ... }:
 
 {
-  programs.direnv.enable = true;
-  programs.direnv.nix-direnv.enable = true;
   services.lorri.enable = true;
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv = {
+      enable = true;
+    };
+  };
 }

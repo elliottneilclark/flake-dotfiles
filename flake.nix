@@ -7,17 +7,17 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, rust-overlay, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
     let
       user = "elliott";
       location = "$HOME/.setup";
-    in {
+    in
+    {
       nixosConfigurations = (import ./modules/hosts {
         inherit (nixpkgs) lib;
-        inherit inputs nixpkgs home-manager rust-overlay user location;
+        inherit inputs nixpkgs home-manager user location;
       });
     };
 }

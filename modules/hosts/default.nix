@@ -1,18 +1,16 @@
-
-
-{ lib, inputs, nixpkgs, home-manager, user, location, rust-overlay, ... }:
+{ lib, inputs, nixpkgs, home-manager, user, location, ... }:
 
 let
   system = "x86_64-linux";
 
-  overlays = [ (import rust-overlay) ];
   pkgs = import nixpkgs {
-    inherit system overlays;
+    inherit system;
     config.allowUnfree = true;
   };
 
   lib = nixpkgs.lib;
-in {
+in
+{
   anton = lib.nixosSystem {
     inherit system pkgs;
     specialArgs = { inherit inputs user location; };

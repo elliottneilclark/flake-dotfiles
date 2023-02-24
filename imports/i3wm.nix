@@ -2,7 +2,8 @@
 let
   mod = "Mod4";
   colors = import ./colors.nix;
-in {
+in
+{
   config = {
 
     programs.i3status-rust = {
@@ -108,6 +109,6 @@ in {
       };
     };
 
-    home.packages = with pkgs; [ autotiling i3lock-fancy ];
+    home.packages = with pkgs; [ autotiling i3lock ];
   };
 }
