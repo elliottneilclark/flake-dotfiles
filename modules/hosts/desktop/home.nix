@@ -20,6 +20,7 @@
       google-chrome # Browser
       slack
       spotify
+      signal-desktop
       pavucontrol
 
     ];
