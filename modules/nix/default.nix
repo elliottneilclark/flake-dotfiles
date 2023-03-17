@@ -16,8 +16,7 @@
   nixpkgs.config.allowUnfree = true;
   system = {
     autoUpgrade = {
-      enable = true;
-      channel = "https://nixos.org/channels/nixos-unstable";
+      enable = false;
     };
     stateVersion = "22.11";
   };

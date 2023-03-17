@@ -47,7 +47,7 @@
         # prezto above doesn't thing that you really ever mean sl
         #
         # So swap it back
-        "sl" = "${pkgs.sapling}/bin/sl";
+        #"sl" = "${pkgs.sapling}/bin/sl";
       };
     };
   };

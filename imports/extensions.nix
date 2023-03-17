@@ -55,12 +55,6 @@
       sha256 = "069a4987pyjavf5ajr8rxvg4nq7jac5h4s7b4ivh8ands6h9cfps";
     }
     {
-      name = "sapling-scm";
-      publisher = "meta";
-      version = "0.1.9";
-      sha256 = "0y1jyn0v7z34mllnjkmcfmvlqfg08xf1sasgq69g9v08bjyj8c91";
-    }
-    {
       name = "direnv";
       publisher = "mkhl";
       version = "0.10.1";
