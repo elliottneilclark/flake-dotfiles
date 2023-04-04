@@ -22,7 +22,6 @@
       spotify
       signal-desktop
       pavucontrol
-
     ];
     pointerCursor = {
       gtk.enable = true;

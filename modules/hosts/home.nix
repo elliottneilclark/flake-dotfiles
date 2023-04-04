@@ -16,7 +16,7 @@
   home = {
     username = "${user}";
     homeDirectory = "/home/${user}";
-    packages = with pkgs; [ jq btop ranger tmux pinta unzip zip unrar ];
+    packages = with pkgs; [ jq btop ranger tmux pinta unzip zip unrar jujutsu ];
     stateVersion = "22.11";
   };
 
