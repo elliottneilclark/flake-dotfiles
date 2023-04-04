@@ -16,7 +16,6 @@
   services.xserver = {
     videoDrivers = [ "nvidia" ];
     layout = "us";
-    xkbVariant = "";
   };
 
   hardware = {
