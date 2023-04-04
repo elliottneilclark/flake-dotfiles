@@ -16,12 +16,12 @@
   services.xserver = {
     videoDrivers = [ "nvidia" ];
     layout = "us";
+    dpi = 100;
   };
 
   hardware = {
     nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.stable;
-      modesetting.enable = true;
       powerManagement.enable = true;
     };
     opengl = {
@@ -32,4 +32,6 @@
   };
 
   networking.hostName = "anton";
+  i18n.defaultLocale = "en_US.UTF-8";
+  console.useXkbConfig = true;
 }

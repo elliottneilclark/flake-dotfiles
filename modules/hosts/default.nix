@@ -1,10 +1,11 @@
-{ lib, inputs, nixpkgs, home-manager, user, location, ... }:
+{ lib, inputs, nixpkgs, home-manager, user, location, jj, ... }:
 
 let
   system = "x86_64-linux";
 
   pkgs = import nixpkgs {
     inherit system;
+    overlays = [ jj.overlays.default ];
     config.allowUnfree = true;
   };
 

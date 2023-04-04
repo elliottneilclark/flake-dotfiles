@@ -23,9 +23,4 @@
   };
 
   home.packages = with pkgs; [ fd ripgrep ];
-
-  #  xdg.configFile.nvim = {
-  #    source = ./config;
-  #    recursive = true;
-  #  };
 }

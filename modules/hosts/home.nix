@@ -1,6 +1,6 @@
 # General Home-manager configuration
 
-{ config, lib, pkgs, user, ... }:
+{ config, lib, pkgs, user, jj, ... }:
 
 {
   imports = [
@@ -11,12 +11,13 @@
     (import ../../imports/zsh.nix)
     (import ../../imports/exa.nix)
     (import ../../imports/tmux.nix)
+    (import ../../imports/jj.nix)
   ];
 
   home = {
     username = "${user}";
     homeDirectory = "/home/${user}";
-    packages = with pkgs; [ jq btop ranger tmux pinta unzip zip unrar jujutsu ];
+    packages = with pkgs; [ jq btop ranger tmux pinta unzip zip unrar ];
     stateVersion = "22.11";
   };
 
