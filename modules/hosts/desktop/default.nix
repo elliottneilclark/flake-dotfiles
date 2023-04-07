@@ -18,6 +18,8 @@
     layout = "us";
     dpi = 100;
   };
+  services.blueman.enable = true;
+
 
   hardware = {
     nvidia = {
@@ -29,7 +31,9 @@
       driSupport = true;
       extraPackages = with pkgs; [ nvidia-vaapi-driver ];
     };
+    bluetooth.enable = true;
   };
+
 
   networking.hostName = "anton";
   i18n.defaultLocale = "en_US.UTF-8";

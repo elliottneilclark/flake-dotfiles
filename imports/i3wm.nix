@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 let
   mod = "Mod4";
-  colors = import ./colors.nix;
 in
 {
   config = {
@@ -24,45 +23,6 @@ in
         fonts = {
           names = [ "JetBrainsMono Nerd Font" ];
           size = 14.0;
-        };
-
-        colors = with colors.scheme.dracula; {
-          background = base07;
-          focused = {
-            background = base0D;
-            border = base0D;
-            childBorder = base0C;
-            indicator = base0D;
-            text = base00;
-          };
-          focusedInactive = {
-            background = base01;
-            border = base01;
-            childBorder = base01;
-            indicator = base03;
-            text = base05;
-          };
-          placeholder = {
-            background = base00;
-            border = base00;
-            childBorder = base00;
-            indicator = base00;
-            text = base05;
-          };
-          unfocused = {
-            background = base00;
-            border = base01;
-            childBorder = base01;
-            indicator = base01;
-            text = base05;
-          };
-          urgent = {
-            background = base08;
-            border = base08;
-            childBorder = base08;
-            indicator = base08;
-            text = base00;
-          };
         };
 
         window = {
@@ -90,6 +50,23 @@ in
           }
         ];
 
+        keybindings = lib.mkOptionDefault {
+            # vim style navigation
+            "${mod}+j" = "focus down";
+            "${mod}+h" = "focus left";
+            "${mod}+l" = "focus right";
+            "${mod}+k" = "focus up";
+
+            "${mod}+Shift+j" = "move down";
+            "${mod}+Shift+h" = "move left";
+            "${mod}+Shift+l" = "move right";
+            "${mod}+Shift+k" = "move up";
+
+            "${mod}+d" = "exec dmenu_run";
+            "${mod}+Return" = "exec alacritty";
+            "${mod}+Shift+Return" = "exec firefox";
+        };
+
         bars = [{
           position = "bottom";
           statusCommand =
@@ -99,8 +76,8 @@ in
         defaultWorkspace = "workspace number 1";
 
         gaps = {
-          inner = 8;
-          outer = 10;
+          inner = 6;
+          outer = 8;
           smartBorders = "off";
           smartGaps = false;
         };
@@ -110,5 +87,6 @@ in
     };
 
     home.packages = with pkgs; [ autotiling i3lock ];
+    services.blueman-applet.enable = true;
   };
 }

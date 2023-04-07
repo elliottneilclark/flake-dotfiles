@@ -2,7 +2,7 @@
 
 
 {
-  home.packages = [ pkgs.jujutsu ];
+  home.packages = with pkgs; [ jujutsu  meld ];
   xdg.configFile."jj/config.toml".text = ''
   [user]
   name = "Elliott Clark"
