@@ -8,8 +8,6 @@
 
     mutableExtensionsDir = true;
     enableUpdateCheck = false;
-    enableExtensionUpdateCheck = false;
-
     userSettings = {
       "telemetry.enableTelemetry" = false;
       "telemetry.enableCrashReporter" = false;
@@ -34,8 +32,6 @@
       "terminal.integrated.scrollback" = 4000;
       "rust-analyzer.trace.extension" = true;
     };
-    extensions = pkgs.vscode-utils.extensionsFromVscodeMarketplace
-      (import ./extensions.nix).extensions;
   };
 }
 
