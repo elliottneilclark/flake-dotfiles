@@ -23,12 +23,18 @@
         greeters = {
           gtk = {
             theme = {
-              name = "Dracula";
-              package = pkgs.dracula-theme;
+              name = "Catppuccin-Mocha-Standard-Pink-Dark";
+              package = pkgs.catppuccin-gtk.override {
+                accents = [ "pink" ];
+                size = "standard";
+                tweaks = [ "rimless" "black" ];
+                variant = "mocha";
+              };
+
             };
             cursorTheme = {
-              name = "Dracula-cursors";
-              package = pkgs.dracula-theme;
+              package = pkgs.catppuccin-cursors.mochaPink;
+              name = "Catppuccin-Mocha-Dark-Cursors";
               size = 16;
             };
           };

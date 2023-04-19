@@ -24,30 +24,32 @@
       pavucontrol
     ];
     pointerCursor = {
-      gtk.enable = true;
-      name = "Dracula-cursors";
-      package = pkgs.dracula-theme;
+      package = pkgs.catppuccin-cursors.mochaPink;
+      name = "Catppuccin-Mocha-Dark-Cursors";
       size = 16;
+      gtk.enable = true;
+      x11.enable = true;
     };
   };
 
   gtk = {
     enable = true;
     theme = {
-      name = "Dracula";
-      package = pkgs.dracula-theme;
+      name = "Catppuccin-Mocha-Standard-Pink-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "pink" ];
+        size = "standard";
+        tweaks = [ "rimless" ];
+        variant = "mocha";
+      };
     };
     iconTheme = {
+      package = pkgs.catppuccin-papirus-folders.override {
+        accent = "pink";
+        flavor = "mocha";
+      };
       name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
     };
     font = { name = "JetBrainsMono Nerd Font"; };
-  };
-
-  systemd.user.targets.tray = {
-    Unit = {
-      Description = "Home Manager System Tray";
-      Requires = [ "graphical-session-pre.target" ];
-    };
   };
 }

@@ -17,7 +17,7 @@
         ssh.identities = [ "id_ed25519" ];
         editor = { keymap = "vi"; };
         color = true;
-        prompt.theme = "random";
+        prompt.theme = "sorin";
         pmodules = [
           # Default modules
           "environment"

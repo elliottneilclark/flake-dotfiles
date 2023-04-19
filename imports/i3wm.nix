@@ -9,7 +9,7 @@ in
       enable = true;
       bars = {
         default = {
-          theme = "dracula";
+          theme = "nord-dark";
           icons = "awesome5";
         };
       };
@@ -51,20 +51,20 @@ in
         ];
 
         keybindings = lib.mkOptionDefault {
-            # vim style navigation
-            "${mod}+j" = "focus down";
-            "${mod}+h" = "focus left";
-            "${mod}+l" = "focus right";
-            "${mod}+k" = "focus up";
+          # vim style navigation
+          "${mod}+j" = "focus down";
+          "${mod}+h" = "focus left";
+          "${mod}+l" = "focus right";
+          "${mod}+k" = "focus up";
 
-            "${mod}+Shift+j" = "move down";
-            "${mod}+Shift+h" = "move left";
-            "${mod}+Shift+l" = "move right";
-            "${mod}+Shift+k" = "move up";
+          "${mod}+Shift+j" = "move down";
+          "${mod}+Shift+h" = "move left";
+          "${mod}+Shift+l" = "move right";
+          "${mod}+Shift+k" = "move up";
 
-            "${mod}+d" = "exec dmenu_run";
-            "${mod}+Return" = "exec alacritty";
-            "${mod}+Shift+Return" = "exec firefox";
+          "${mod}+d" = "exec dmenu_run";
+          "${mod}+Return" = "exec alacritty";
+          "${mod}+Shift+Return" = "exec firefox";
         };
 
         bars = [{
