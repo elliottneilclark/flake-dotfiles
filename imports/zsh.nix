@@ -5,8 +5,23 @@
     fzf.enable = true;
     fzf.enableZshIntegration = true;
 
+    # shell prompt
+    starship = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
     zsh = {
       enable = true;
+
+      localVariables = {
+        EDITOR = "nvim";
+        SUDO_EDITOR = "nvim";
+      };
+      enableAutosuggestions = true;
+      enableCompletion = true;
+      enableSyntaxHighlighting = true;
+
 
       prezto = {
         enable = true;
@@ -17,7 +32,6 @@
         ssh.identities = [ "id_ed25519" ];
         editor = { keymap = "vi"; };
         color = true;
-        prompt.theme = "sorin";
         pmodules = [
           # Default modules
           "environment"
@@ -28,11 +42,13 @@
           "spectrum"
           "utility"
           "completion"
-          "prompt"
 
           # extra
           "history-substring-search"
           "syntax-highlighting"
+          "autosuggestions"
+
+          "ssh"
           "tmux"
           "docker"
           "git"
@@ -44,7 +60,7 @@
         ".." = "cd ..";
 
         # Re-assign this back to sl
-        # prezto above doesn't thing that you really ever mean sl
+        # prezto above doesn't think that you really ever mean sl
         #
         # So swap it back
         #"sl" = "${pkgs.sapling}/bin/sl";

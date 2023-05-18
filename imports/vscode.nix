@@ -1,10 +1,13 @@
 { config, lib, pkgs, ... }:
 
 let
+  openvsxExtensions = with pkgs.vscode-extensions; [ astro-build.astro-vscode ];
   extensions = with pkgs.vscode-marketplace; [
     # theme
     catppuccin.catppuccin-vsc
     catppuccin.catppuccin-vsc-icons
+    pkief.material-product-icons
+    pkief.material-icon-theme
 
     # vim emulation
     vscodevim.vim
@@ -20,16 +23,13 @@ let
     mkhl.direnv
 
     # Elixir
-    jakebecker.elixir-ls
+    # jakebecker.elixir-ls
     florinpatrascu.vscode-elixir-snippets
     phoenix-liveview-snippets.phoenix-liveview-snippets
     phoenixframework.phoenix
 
     # Css
     bradlc.vscode-tailwindcss
-
-    # Astro
-    astro-build.astro-vscode
 
     # Rust
     tamasfe.even-better-toml
@@ -41,13 +41,17 @@ let
 
     # Formatting
     esbenp.prettier-vscode
+
+    # Sharing
+    ms-vscode-remote.remote-ssh
+    ms-vsliveshare.vsliveshare
   ];
 in
 {
   programs.vscode = {
     enable = true;
 
-    package = pkgs.vscodium;
+    package = pkgs.vscode;
 
     mutableExtensionsDir = true;
     enableUpdateCheck = false;
@@ -87,7 +91,9 @@ in
         fontAliasing = "antialiased";
         startupEditor = "none";
         colorTheme = "Catppuccin Mocha";
-        iconTheme = "catppuccin-mocha";
+        iconTheme = "material-icon-theme";
+        productIconTheme = "material-product-icons";
+        smoothScrolling = true;
       };
 
       "window.titleBarStyle" = "custom";
@@ -123,14 +129,9 @@ in
           visualline = "block-outline";
         };
       };
-
-      emmet = {
-        showExpandedAbbreviation = "never";
-        showSuggestionsAsSnippets = false;
-      };
     };
 
-    extensions = extensions;
+    extensions = extensions ++ openvsxExtensions;
   };
 
   home.packages = with pkgs; [
