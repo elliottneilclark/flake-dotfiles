@@ -29,7 +29,12 @@ in
           titlebar = false;
           hideEdgeBorders = "none";
         };
-        floating.criteria = [{ class = "Pavucontrol"; }];
+
+        floating.criteria = [
+          { class = "Pavucontrol"; }
+          { title = "Steam - Update News"; }
+          { title = "Steam Keyboard"; }
+        ];
 
         startup = [
           {

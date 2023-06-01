@@ -27,10 +27,16 @@
       activeOpacity = 0.97; # Node transparency
       inactiveOpacity = 0.93;
 
-      opacityRules = [ "90:class_g = 'i3bar'" "100:class_g = 'firefox'" ];
+      opacityRules = [
+        "100:class_g = 'firefox'"
+        "100:name *= 'Minecraft'"
+      ];
 
-      shadowExclude =
-        [ "window_type *= 'menu'" "name ~= 'Firefox$'" "focused = 1" ];
+      shadowExclude = [
+        "window_type *= 'menu'"
+        "name ~= 'Firefox$'"
+        "focused = 1"
+      ];
 
       shadow = false;
       shadowOpacity = 0.75;

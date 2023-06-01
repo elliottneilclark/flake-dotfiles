@@ -6,9 +6,16 @@
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 5;
+  boot.loader.systemd-boot.editor = false;
+  boot.loader.systemd-boot.consoleMode = "auto";
+  boot.loader.systemd-boot.memtest86.enable = false;
+
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.supportedFilesystems = [ "ntfs" ];
 
+  # Needed for flatpack
   security.polkit.enable = true;
   security.rtkit.enable = true;
 

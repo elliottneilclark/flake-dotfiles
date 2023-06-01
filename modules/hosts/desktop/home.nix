@@ -11,6 +11,7 @@
     (import ../../../imports/vscode.nix)
     (import ../../../imports/neovim.nix)
     (import ../../../imports/firefox.nix)
+    (import ../../../imports/woeusb.nix)
   ];
 
   home = {
@@ -20,8 +21,10 @@
       google-chrome # Browser
       slack
       spotify
+      discord
       signal-desktop
       pavucontrol
+      easyeffects
     ];
     pointerCursor = {
       package = pkgs.catppuccin-cursors.mochaPink;
@@ -31,6 +34,7 @@
       x11.enable = true;
     };
   };
+
 
   gtk = {
     enable = true;
