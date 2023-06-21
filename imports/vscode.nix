@@ -1,11 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   openvsxExtensions = with pkgs.vscode-extensions; [ astro-build.astro-vscode ];
   extensions = with pkgs.vscode-marketplace; [
     # theme
-    catppuccin.catppuccin-vsc
-    catppuccin.catppuccin-vsc-icons
+    arcticicestudio.nord-visual-studio-code
     pkief.material-product-icons
     pkief.material-icon-theme
 
@@ -78,7 +77,7 @@ in
         formatOnSave = true;
         formatOnType = true;
 
-        fontFamily = "JetBrains Mono Nerd Font";
+        fontFamily = "'FiraCode Nerd Font'";
         fontSize = 16;
         fontLigatures = true;
 
@@ -90,7 +89,7 @@ in
       workbench = {
         fontAliasing = "antialiased";
         startupEditor = "none";
-        colorTheme = "Catppuccin Mocha";
+        colorTheme = "Nord";
         iconTheme = "material-icon-theme";
         productIconTheme = "material-product-icons";
         smoothScrolling = true;
@@ -103,7 +102,7 @@ in
           cursorBlinking = true;
           cursorStyle = "line";
           cursorWidth = 2;
-          fontFamily = "JetBrains Mono Nerd Font";
+          fontFamily = "FiraCode";
           fontSize = 16;
           smoothScrolling = true;
           scrollback = 5000;
@@ -133,9 +132,4 @@ in
 
     extensions = extensions ++ openvsxExtensions;
   };
-
-  home.packages = with pkgs; [
-    nodePackages.prettier
-    nixpkgs-fmt
-  ];
 }

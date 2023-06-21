@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, ... }:
 
 {
 
@@ -11,10 +11,9 @@
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
-      roboto
 
       # nerdfonts
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
     ];
 
     # use fonts specified by user rather than default ones
@@ -26,9 +25,8 @@
     fontconfig.defaultFonts = {
       serif = [ "Noto Serif" "Noto Color Emoji" ];
       sansSerif = [ "Noto Sans" "Noto Color Emoji" ];
-      monospace = [ "JetBrainsMono Nerd Font" "Noto Color Emoji" ];
+      monospace = [ "FiraCode Nerd Font" "Noto Color Emoji" ];
       emoji = [ "Noto Color Emoji" ];
     };
   };
-
 }

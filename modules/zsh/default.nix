@@ -1,7 +1,7 @@
 # Zsh + Zsh Oh My
 #
 
-{ pkgs, ... }:
+{ ... }:
 
 {
   programs = {

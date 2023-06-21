@@ -1,9 +1,10 @@
-{ pkgs, ... }:
-
+{ config, pkgs, ... }:
 
 {
-  home.packages = [
-    pkgs.woeusb-ng
-    pkgs.ntfs3g
-  ];
+  config = {
+    home.packages = with pkgs; [
+      woeusb-ng
+      ntfs3g
+    ];
+  };
 }

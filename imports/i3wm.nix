@@ -4,7 +4,6 @@ let
 in
 {
   config = {
-
     programs.i3status-rust = {
       enable = true;
       bars = {
@@ -21,7 +20,7 @@ in
         modifier = mod;
         terminal = "alacritty";
         fonts = {
-          names = [ "JetBrainsMono Nerd Font" ];
+          names = [ "FiraCode Nerd Font" ];
           size = 14.0;
         };
 

@@ -1,6 +1,6 @@
 # i3wm
 #
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   services.xserver = {
@@ -21,21 +21,17 @@
         background =
           pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath;
         greeters = {
+
+
           gtk = {
             theme = {
-              name = "Catppuccin-Mocha-Standard-Pink-Dark";
-              package = pkgs.catppuccin-gtk.override {
-                accents = [ "pink" ];
-                size = "standard";
-                tweaks = [ "rimless" "black" ];
-                variant = "mocha";
-              };
-
+              name = "Nordic";
+              package = pkgs.nordic;
             };
+
             cursorTheme = {
-              package = pkgs.catppuccin-cursors.mochaPink;
-              name = "Catppuccin-Mocha-Dark-Cursors";
-              size = 16;
+              name = "Nordzy-white-cursors";
+              package = pkgs.nordzy-cursor-theme;
             };
           };
         };
