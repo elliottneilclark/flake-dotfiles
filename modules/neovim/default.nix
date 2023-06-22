@@ -1,7 +1,7 @@
 # Neovim
 #
 
-{ pkgs, ... }:
+{ ... }:
 
 {
   programs = {

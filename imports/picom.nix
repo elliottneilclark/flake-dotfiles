@@ -1,14 +1,14 @@
 # Compositor
 #
 
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   config = {
     services.picom = {
       enable = true;
 
-      package = pkgs.picom.overrideAttrs (o: {
+      package = pkgs.picom.overrideAttrs (_o: {
         src = pkgs.fetchFromGitHub {
           #repo = "picom";
           #owner = "pijulius";

@@ -1,4 +1,4 @@
-{ user, config, lib, pkgs, host, ... }:
+{ ... }:
 
 {
   programs = {

@@ -1,26 +1,29 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-    withPython3 = true;
+  config = {
 
-    plugins = with pkgs.vimPlugins; [
-      # Defaults
-      vim-sensible
+    programs.neovim = {
+      enable = true;
+      viAlias = true;
+      vimAlias = true;
+      vimdiffAlias = true;
+      withPython3 = true;
 
-      # Languages
-      vim-elixir
-      vim-nix
+      plugins = with pkgs.vimPlugins; [
+        # Defaults
+        vim-sensible
 
-      # Left tree
-      nvim-web-devicons
-      nvim-tree-lua
-    ];
+        # Languages
+        vim-elixir
+        vim-nix
+
+        # Left tree
+        nvim-web-devicons
+        nvim-tree-lua
+      ];
+    };
+
+    home.packages = with pkgs; [ fd ripgrep ];
   };
-
-  home.packages = with pkgs; [ fd ripgrep ];
 }

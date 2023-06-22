@@ -4,10 +4,10 @@
 
 let
   catppuccin-alacritty = pkgs.fetchFromGitHub {
-    owner = "catppuccin";
+    owner = "nordtheme";
     repo = "alacritty";
-    rev = "3c808cbb4f9c87be43ba5241bc57373c793d2f17";
-    sha256 = "07gvkxz9axvjjplpmwf6k0nk6n84gm20s0k5qkqsqkmv8ysdbmf3";
+    rev = "9949642f3903e8fcb62bfc03f09410e3d78440c2";
+    sha256 = "GYx3DpUgl9ljccASIoLKRDovX+LCC8MKFNUy0TK7rD4=";
   };
 in
 {
@@ -15,12 +15,12 @@ in
     alacritty = {
       enable = true;
       settings = {
-        import = [ "${catppuccin-alacritty}/catppuccin-mocha.yml" ];
+        import = [ "${catppuccin-alacritty}/src/nord.yml" ];
         font = {
-          normal.family = "JetBrainsMono Nerd Font";
-          bold.family = "JetBrainsMono Nerd Font";
-          italic.family = "JetBrainsMono Nerd Font";
-          bold_italic.family = "JetBrainsMono Nerd Font";
+          normal.family = "FiraCode Nerd Font";
+          bold.family = "FiraCode Nerd Font";
+          italic.family = "FiraCode Nerd Font";
+          bold_italic.family = "FiraCode Nerd Font";
           size = 14;
         };
       };

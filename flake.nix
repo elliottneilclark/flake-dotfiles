@@ -18,17 +18,26 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, jj, nix-vscode-extensions, ... }:
-    let
-      user = "elliott";
-      location = "$HOME/.setup";
-    in
+  outputs = inputs@{ nixpkgs, home-manager, jj, nix-vscode-extensions, treefmt-nix, ... }:
+
     {
-      nixosConfigurations = (import ./modules/hosts {
+      nixosConfigurations = (import ./hosts {
         inherit (nixpkgs) lib;
-        inherit inputs nixpkgs home-manager user location jj nix-vscode-extensions;
+        inherit inputs nixpkgs home-manager jj nix-vscode-extensions;
       });
+
+      formatter.x86_64-linux = treefmt-nix.lib.mkWrapper
+        nixpkgs.legacyPackages.x86_64-linux
+        {
+          projectRootFile = "flake.nix";
+          programs.nixpkgs-fmt.enable = true;
+          programs.deadnix.enable = true;
+        };
     };
 }

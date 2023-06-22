@@ -21,11 +21,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1685518550,
-        "narHash": "sha256-o2d0KcvaXzTrPRIo0kOLV0/QXHhDQ5DTi+OxcjO8xqY=",
+        "lastModified": 1687171271,
+        "narHash": "sha256-BJlq+ozK2B1sJDQXS3tzJM5a+oVZmi1q0FlBK/Xqv7M=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "a1720a10a6cfe8234c0e93907ffe81be440f4cef",
+        "rev": "abfb11bd1aec8ced1c9bb9adfe68018230f4fb3c",
         "type": "github"
       },
       "original": {
@@ -41,11 +41,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1685573051,
-        "narHash": "sha256-zrpbdQVJFpNVFK3SlA6mE0le8qnKjUjcuY4OzL+wSHw=",
+        "lastModified": 1687365523,
+        "narHash": "sha256-2l/cPXDCDVcLNm+EvCRGJcJ9YxxyLbc2vfTah/t8Qwc=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "3876cc613ac3983078964ffb5a0c01d00028139e",
+        "rev": "1fefd7bb8da0eec6755747f410fa491411a94296",
         "type": "github"
       },
       "original": {
@@ -65,11 +65,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1685579886,
-        "narHash": "sha256-ia7ntIdu8KWXgUMulgWt0jasWgDj6gpol6oiaeaUArQ=",
+        "lastModified": 1687370248,
+        "narHash": "sha256-GEp7GT1QJYIG6TugFcYGkHGNmkjYzsTg/se7PAv0CX4=",
         "owner": "martinvonz",
         "repo": "jj",
-        "rev": "3d449c55b7fa332eccb1212be7ad7f9a6f465228",
+        "rev": "083548e976291b41c3a7c616a8a3e2fed2494923",
         "type": "github"
       },
       "original": {
@@ -89,11 +89,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1685584329,
-        "narHash": "sha256-Eg/kDcAp/UIjCNgIRRyQscP6O0PHTmQ6aHkaC590ALY=",
+        "lastModified": 1687397115,
+        "narHash": "sha256-WVujKcLDUuTICdrvF6beZhRbZC5ABtdCfAjCPVshhA0=",
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "rev": "71a52cdeb59fc176ead60ca111a2eba7a330f5f9",
+        "rev": "a99c617a0512a6793ff2e2380f8c0ce682b4fd23",
         "type": "github"
       },
       "original": {
@@ -104,11 +104,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1685383865,
-        "narHash": "sha256-3uQytfnotO6QJv3r04ajSXbEFMII0dUtw0uqYlZ4dbk=",
+        "lastModified": 1686960236,
+        "narHash": "sha256-AYCC9rXNLpUWzD9hm+askOfpliLEC9kwAo7ITJc4HIw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "5e871d8aa6f57cc8e0dc087d1c5013f6e212b4ce",
+        "rev": "04af42f3b31dba0ef742d254456dc4c14eedac86",
         "type": "github"
       },
       "original": {
@@ -124,7 +124,8 @@
         "home-manager": "home-manager",
         "jj": "jj",
         "nix-vscode-extensions": "nix-vscode-extensions",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "treefmt-nix": "treefmt-nix"
       }
     },
     "rust-overlay": {
@@ -139,11 +140,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1674095406,
-        "narHash": "sha256-RexH/1rZTiX4OhdYkuJP3MuANJ+JRgoLKL60iHm//T0=",
+        "lastModified": 1687141659,
+        "narHash": "sha256-ckvEuxejYmFTyFF0u9CWV8h5u+ubuxA7vYrOw/GXRXg=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "5f7315b9800e2e500e6834767a57e39f7dbfd495",
+        "rev": "86302751ef371597d48951983e1a2f04fe78d4ff",
         "type": "github"
       },
       "original": {
@@ -164,6 +165,26 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "treefmt-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1685519364,
+        "narHash": "sha256-rE9c9jWDSc5Nj0OjNzBENaJ6j4YBphcqSPia2IwCMLA=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "6521a278bcba66b440554cc1350403594367b4ac",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "treefmt-nix",
         "type": "github"
       }
     }
