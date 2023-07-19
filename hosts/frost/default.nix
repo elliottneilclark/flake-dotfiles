@@ -10,7 +10,6 @@
   boot.loader.systemd-boot.editor = false;
   boot.loader.systemd-boot.consoleMode = "max";
   boot.loader.systemd-boot.memtest86.enable = false;
-  boot.plymouth.enable = true;
 
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];

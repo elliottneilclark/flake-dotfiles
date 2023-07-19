@@ -1,7 +1,9 @@
 { pkgs, ... }:
 
 let
-  openvsxExtensions = with pkgs.vscode-extensions; [ astro-build.astro-vscode ];
+  openvsxExtensions = with pkgs.vscode-extensions; [
+    astro-build.astro-vscode
+  ];
   extensions = with pkgs.vscode-marketplace; [
     # theme
     arcticicestudio.nord-visual-studio-code
@@ -59,6 +61,7 @@ in
     userSettings = {
       "telemetry.enableTelemetry" = false;
       "telemetry.enableCrashReporter" = false;
+      "telemetry.telemetryLevel" = "off";
 
       "files.insertFinalNewline" = true;
       "files.trimFinalNewlines" = true;
@@ -71,10 +74,10 @@ in
         "**/.sl" = true;
         "**/.jj" = true;
         "**/_build" = true;
+        "**/target" = true;
       };
 
       editor = {
-        formatOnSave = true;
         formatOnType = true;
 
         fontFamily = "'FiraCode Nerd Font'";
