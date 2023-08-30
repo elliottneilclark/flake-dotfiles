@@ -47,6 +47,10 @@
     };
     bluetooth.enable = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    conda
+  ];
   networking.networkmanager.enable = true;
 
 

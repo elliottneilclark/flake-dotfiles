@@ -48,6 +48,9 @@
       nordic
       nordzy-icon-theme
       nordzy-cursor-theme
+
+      gimp
+      pinta
     ];
   };
 }

@@ -20,11 +20,9 @@ let
     jnoortheen.nix-ide
 
     # direnv
-    # arrterian.nix-env-selector
     mkhl.direnv
 
     # Elixir
-    # jakebecker.elixir-ls
     florinpatrascu.vscode-elixir-snippets
     phoenix-liveview-snippets.phoenix-liveview-snippets
     phoenixframework.phoenix
@@ -35,7 +33,6 @@ let
     # Rust
     tamasfe.even-better-toml
     serayuzgur.crates
-    # rust-lang.rust-analyzer
 
     # Markdown
     yzhang.markdown-all-in-one
@@ -76,6 +73,8 @@ in
         "**/_build" = true;
         "**/target" = true;
       };
+
+      refactai.infurl =  "http://127.0.0.1:8008/";
 
       editor = {
         formatOnType = true;
