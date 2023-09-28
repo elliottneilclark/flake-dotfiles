@@ -54,6 +54,10 @@
           "git"
 
         ];
+
+        extraConfig = ''
+          zstyle ':prezto:module:git:alias' skip 'yes'
+        '';
       };
 
       shellAliases = {

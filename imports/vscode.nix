@@ -43,6 +43,8 @@ let
     # Sharing
     ms-vscode-remote.remote-ssh
     ms-vsliveshare.vsliveshare
+
+    sourcegraph.cody-ai
   ];
 in
 {
@@ -73,8 +75,6 @@ in
         "**/_build" = true;
         "**/target" = true;
       };
-
-      refactai.infurl =  "http://127.0.0.1:8008/";
 
       editor = {
         formatOnType = true;
@@ -130,6 +130,8 @@ in
           visualline = "block-outline";
         };
       };
+
+      "git.autofetch" = true;
     };
 
     extensions = extensions ++ openvsxExtensions;
