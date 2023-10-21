@@ -1,5 +1,3 @@
-# Git
-#
 { config, ... }:
 
 {
@@ -58,6 +56,6 @@
   '';
 
   xdg.configFile."git/commit.template" = {
-    source = ../modules/git/commit.template;
+    source = ./git/commit.template;
   };
 }
