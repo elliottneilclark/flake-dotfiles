@@ -4,6 +4,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-darwin.url = "github:lnl7/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     flake-parts.url = "github:hercules-ci/flake-parts";
@@ -39,26 +43,27 @@
           };
         };
 
-        # nixosConfigurations = {
-        #   anton = self.nixos-flake.lib.mkLinuxSystem {
-        #     imports = [
-        #       self.nixosModules.default
-        #       ./hosts/anton
-        #     ];
-        #   };
-        #   frost = self.nixos-flake.lib.mkLinuxSystem {
-        #     imports = [
-        #       self.nixosModules.default
-        #       ./hosts/anton
-        #     ];
-        #   };
-        #  };
+        nixosConfigurations = {
+          anton = self.nixos-flake.lib.mkLinuxSystem {
+            imports = [
+              self.nixosModules.default
+              ./hosts/anton
+            ];
+          };
+          frost = self.nixos-flake.lib.mkLinuxSystem {
+            imports = [
+              self.nixosModules.default
+              ./hosts/anton
+            ];
+          };
+        };
       };
 
-      perSystem = { self', system, pkgs, lib, config, inputs', ... }: {
+      perSystem = { self', config, ... }: {
         treefmt.config = {
           projectRootFile = "flake.nix";
           programs.nixpkgs-fmt.enable = true;
+          programs.deadnix.enable = true;
         };
         packages.default = self'.packages.activate;
         formatter = config.treefmt.build.wrapper;

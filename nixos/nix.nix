@@ -14,7 +14,10 @@
         ];
       allowUnfree = true;
     };
-    overlays = [ flake.inputs.jj.overlays.default ];
+    overlays = [
+      flake.inputs.jj.overlays.default
+      flake.inputs.nix-vscode-extensions.overlays.default
+    ];
   };
 
 
@@ -45,5 +48,12 @@
     nixPath = [ "nixpkgs=${flake.inputs.nixpkgs}" ];
 
     registry.nixpkgs.flake = flake.inputs.nixpkgs;
+  };
+
+  system = {
+    autoUpgrade = {
+      enable = false;
+    };
+    stateVersion = "23.05";
   };
 }

@@ -1,7 +1,7 @@
 # Gaming
 #
 
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
   environment.systemPackages = [ pkgs.prismlauncher pkgs.jdk8 pkgs.jdk ];

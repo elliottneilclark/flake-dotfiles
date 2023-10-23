@@ -29,7 +29,6 @@
     dpi = 100;
   };
   services.blueman.enable = true;
-  xdg.portal.enable = true;
   services.flatpak.enable = true;
 
 

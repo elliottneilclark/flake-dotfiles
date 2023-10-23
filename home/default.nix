@@ -24,7 +24,7 @@
           ./woeusb.nix
           ./firefox.nix
           ./alacritty.nix
-          ./steam.nix
+          ./vscode.nix
         ];
       };
       common-darwin = {
