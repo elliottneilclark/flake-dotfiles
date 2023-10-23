@@ -13,6 +13,7 @@
           ./neovim.nix
           ./tmux.nix
           ./btop.nix
+          ./tools.nix
         ];
       };
       common-linux = {
