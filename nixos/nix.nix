@@ -50,10 +50,4 @@
     registry.nixpkgs.flake = flake.inputs.nixpkgs;
   };
 
-  system = {
-    autoUpgrade = {
-      enable = false;
-    };
-    stateVersion = "23.11";
-  };
 }

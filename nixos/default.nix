@@ -21,20 +21,28 @@
         };
       };
 
-      default.imports = [
-        self.nixosModules.home-manager
-        self.nixosModules.linux-home
-        self.nixosModules.common
-        ./users.nix
-        ./fonts.nix
-        ./ssh.nix
-        ./thunar.nix
-        ./printing.nix
-        ./gaming.nix
-        ./i3wm.nix
-        ./sound.nix
-        ./docker.nix
-      ];
+      default = {
+        imports = [
+          self.nixosModules.home-manager
+          self.nixosModules.linux-home
+          self.nixosModules.common
+          ./users.nix
+          ./fonts.nix
+          ./ssh.nix
+          ./thunar.nix
+          ./printing.nix
+          ./gaming.nix
+          ./i3wm.nix
+          ./sound.nix
+          ./docker.nix
+        ];
+        system = {
+          autoUpgrade = {
+            enable = false;
+          };
+          stateVersion = "23.11";
+        };
+      };
     };
   };
 }

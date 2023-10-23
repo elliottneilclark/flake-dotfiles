@@ -34,6 +34,7 @@
       signal-desktop
       pavucontrol
       easyeffects
+      usbutils
 
       nordic
       nordzy-icon-theme
