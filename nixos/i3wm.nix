@@ -3,6 +3,7 @@
 { pkgs, ... }:
 
 {
+  xdg.portal = { enable = true; extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; };
   services.xserver = {
     enable = true;
     desktopManager = {

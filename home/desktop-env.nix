@@ -1,15 +1,6 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    (import ../imports/alacritty.nix)
-    (import ../imports/picom.nix)
-    (import ../imports/i3wm.nix)
-    (import ../imports/vscode.nix)
-    (import ../imports/neovim.nix)
-    (import ../imports/firefox.nix)
-  ];
-
   gtk = {
     enable = true;
     theme.name = "Nordic";
@@ -37,13 +28,13 @@
       feh # Image Viewer
       pavucontrol # Audio Control
       google-chrome # Browser
-      pinta
       slack
       spotify
       discord
       signal-desktop
       pavucontrol
       easyeffects
+      usbutils
 
       nordic
       nordzy-icon-theme

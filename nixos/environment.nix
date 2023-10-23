@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 {
-  services.sshd.enable = true;
   time.timeZone = "America/Chicago";
 
   environment = {
@@ -9,6 +8,6 @@
       EDITOR = "nvim";
       VISUAL = "nvim";
     };
-    systemPackages = with pkgs; [ neovim killall pciutils ];
+    systemPackages = with pkgs; [ neovim killall ];
   };
 }

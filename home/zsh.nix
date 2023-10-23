@@ -3,7 +3,7 @@
 {
   programs = {
     fzf.enable = true;
-    fzf.enableZshIntegration = true;
+    #fzf.enableZshIntegration = true;
 
     # shell prompt
     starship = {

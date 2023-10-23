@@ -31,7 +31,6 @@
     dpi = 100;
   };
   services.blueman.enable = true;
-  xdg.portal.enable = true;
   services.flatpak.enable = true;
 
 
@@ -43,6 +42,7 @@
     opengl = {
       enable = true;
       driSupport = true;
+      driSupport32Bit = true;
       extraPackages = with pkgs; [ nvidia-vaapi-driver ];
     };
     bluetooth.enable = true;
