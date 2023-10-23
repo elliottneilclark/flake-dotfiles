@@ -8,7 +8,7 @@
       dates = "weekly";
       options = "--delete-older-than 2d";
     };
-    package = pkgs.nixVersions.unstable;
+    package = pkgs.nixVersions.stable;
     registry.nixpkgs.flake = inputs.nixpkgs;
     extraOptions = "experimental-features = nix-command flakes";
   };
