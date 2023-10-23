@@ -33,6 +33,7 @@
         ./gaming.nix
         ./i3wm.nix
         ./sound.nix
+        ./docker.nix
       ];
     };
   };
