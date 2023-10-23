@@ -25,6 +25,7 @@
           ./firefox.nix
           ./alacritty.nix
           ./vscode.nix
+          ./desktop-env.nix
         ];
       };
       common-darwin = {

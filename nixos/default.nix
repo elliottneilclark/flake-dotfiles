@@ -32,7 +32,7 @@
         ./printing.nix
         ./gaming.nix
         ./i3wm.nix
-        # ./sound.nix
+        ./sound.nix
       ];
     };
   };

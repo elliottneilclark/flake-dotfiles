@@ -53,7 +53,7 @@
           frost = self.nixos-flake.lib.mkLinuxSystem {
             imports = [
               self.nixosModules.default
-              ./hosts/anton
+              ./hosts/frost
             ];
           };
         };
