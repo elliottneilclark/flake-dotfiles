@@ -1,0 +1,24 @@
+JJ: Title: type(<area scope>): summary of the changes that you have made
+JJ: No more than 80 chars
+
+JJ: Remember the blank line
+
+Summary:
+
+Test Plan:
+
+JJ: /End
+JJ:
+JJ: Some Reasonable change types
+JJ:
+JJ: - feat
+JJ: - fix
+JJ: - refactor
+JJ: - perf
+JJ: - style
+JJ: - test
+JJ: - docs
+JJ: - build
+JJ: - chore
+JJ:
+JJ: Area Scope is optional
