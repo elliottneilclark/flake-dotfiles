@@ -33,7 +33,6 @@
       discord
       signal-desktop
       pavucontrol
-      easyeffects
       usbutils
 
       nordic

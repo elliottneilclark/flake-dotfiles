@@ -58,17 +58,13 @@ in
     enableExtensionUpdateCheck = false;
 
     userSettings = {
-      "telemetry.enableTelemetry" = false;
-      "telemetry.enableCrashReporter" = false;
-      "telemetry.telemetryLevel" = "off";
+      files.insertFinalNewline = true;
+      files.trimFinalNewlines = true;
+      files.trimTrailingWhitespace = true;
 
-      "files.insertFinalNewline" = true;
-      "files.trimFinalNewlines" = true;
-      "files.trimTrailingWhitespace" = true;
-
-      "files.enableTrash" = false;
-      "files.autoSave" = "onFocusChange";
-      "files.exclude" = {
+      files.enableTrash = false;
+      files.autoSave = "onFocusChange";
+      files.exclude = {
         "**/node_modules" = true;
         "**/.sl" = true;
         "**/.jj" = true;
@@ -82,6 +78,7 @@ in
         fontFamily = "'FiraCode Nerd Font'";
         fontSize = 16;
         fontLigatures = true;
+        inlineSuggest.suppressSuggestions = false;
 
         minimap = {
           enabled = false;
@@ -97,16 +94,13 @@ in
         smoothScrolling = true;
       };
 
-      "window.titleBarStyle" = "custom";
+      window.titleBarStyle = "custom";
+      update.mode = "none";
 
       terminal = {
         integrated = {
-          cursorBlinking = true;
-          cursorStyle = "line";
-          cursorWidth = 2;
           fontFamily = "FiraCode";
           fontSize = 16;
-          smoothScrolling = true;
           scrollback = 5000;
 
           ignoreProcessNames = [
@@ -131,7 +125,7 @@ in
         };
       };
 
-      "git.autofetch" = true;
+      git.autofetch = true;
     };
 
     extensions = extensions ++ openvsxExtensions;
