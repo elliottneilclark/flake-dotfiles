@@ -27,6 +27,7 @@
           ./alacritty.nix
           ./vscode.nix
           ./desktop-env.nix
+          ./easyeffects.nix
         ];
       };
       common-darwin = {

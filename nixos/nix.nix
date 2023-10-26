@@ -39,10 +39,11 @@
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       ];
+      trusted-users = [ "root" "@wheel" "elliott" ];
     };
     gc = {
       automatic = true;
-      options = "--delete-older-than 4d";
+      randomizedDelaySec = "2min";
     };
     package = pkgs.nixVersions.unstable;
     nixPath = [ "nixpkgs=${flake.inputs.nixpkgs}" ];
