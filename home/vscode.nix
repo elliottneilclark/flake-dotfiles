@@ -9,6 +9,7 @@ let
     arcticicestudio.nord-visual-studio-code
     pkief.material-product-icons
     pkief.material-icon-theme
+    eliverlara.andromeda
 
     # vim emulation
     vscodevim.vim
@@ -88,7 +89,7 @@ in
       workbench = {
         fontAliasing = "antialiased";
         startupEditor = "none";
-        colorTheme = "Nord";
+        colorTheme = "Andromeda";
         iconTheme = "material-icon-theme";
         productIconTheme = "material-product-icons";
         smoothScrolling = true;

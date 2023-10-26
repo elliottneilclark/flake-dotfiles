@@ -21,7 +21,7 @@
           self.homeModules.common
           ./picom.nix
           ./i3wm.nix
-          ./udiskie.nix
+          # ./udiskie.nix
           ./woeusb.nix
           ./firefox.nix
           ./alacritty.nix
