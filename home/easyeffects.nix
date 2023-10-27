@@ -1,10 +1,11 @@
 { pkgs, ... }:
 
 {
-  services.easyeffects.enable = true;
-  services.easyeffects.package = pkgs.easyeffects.override {
-    speexdsp = pkgs.speexdsp.overrideAttrs (_old: { configureFlags = [ ]; });
-  };
+  services.easyeffects =
+    {
+      enable = true;
+      preset = "optimized";
+    };
 
   # based on https://gist.github.com/MateusRodCosta/a10225eb132cdcb97d7c458526f93085
   xdg.configFile."easyeffects/input/optimised.json".text = builtins.toJSON {
