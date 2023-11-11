@@ -47,8 +47,15 @@ let
 
     sourcegraph.cody-ai
   ];
+  nixpkgs-fmt = pkgs.nixpkgs-fmt;
+  rnix-lsp = pkgs.rnix-lsp;
+  home_packages = [
+    nixpkgs-fmt
+    rnix-lsp
+  ];
 in
 {
+  home.packages = home_packages;
   programs.vscode = {
     enable = true;
 
@@ -79,6 +86,7 @@ in
         fontFamily = "'FiraCode Nerd Font'";
         fontSize = 16;
         fontLigatures = true;
+        inlineSuggest.enabled = true;
         inlineSuggest.suppressSuggestions = false;
 
         minimap = {
@@ -116,6 +124,9 @@ in
 
       vim = {
         useSystemClipboard = true;
+        handleKeys = {
+          "<C-p>" = false;
+        };
         cursorStylePerMode = {
           normal = "block";
           insert = "line";
@@ -127,6 +138,9 @@ in
       };
 
       git.autofetch = true;
+
+      nix.formatterPath = "${nixpkgs-fmt}/bin/nixpkgs-fmt";
+      nix.serverPath = "${rnix-lsp}/bin/rnix-lsp";
     };
 
     extensions = extensions ++ openvsxExtensions;

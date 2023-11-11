@@ -62,6 +62,7 @@
 
       shellAliases = {
         ".." = "cd ..";
+        g = "git";
 
         # Re-assign this back to sl
         # prezto above doesn't think that you really ever mean sl
