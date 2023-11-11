@@ -43,7 +43,6 @@
     };
     gc = {
       automatic = true;
-      randomizedDelaySec = "2min";
     };
     package = pkgs.nixVersions.unstable;
     nixPath = [ "nixpkgs=${flake.inputs.nixpkgs}" ];

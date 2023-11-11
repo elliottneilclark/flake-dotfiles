@@ -6,6 +6,7 @@ in
   programs = {
     jujutsu = {
       enable = true;
+      enableZshIntegration = true;
       settings = {
         user.name = "Elliott Clark";
         user.email = "elliott@batteriesincl.com";
