@@ -8,9 +8,7 @@ Summary:
 Test Plan:
 
 JJ: /End
-JJ:
 JJ: Some Reasonable change types
-JJ:
 JJ: - feat
 JJ: - fix
 JJ: - refactor
@@ -20,5 +18,4 @@ JJ: - test
 JJ: - docs
 JJ: - build
 JJ: - chore
-JJ:
 JJ: Area Scope is optional
