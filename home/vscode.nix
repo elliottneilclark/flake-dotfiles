@@ -1,6 +1,39 @@
-{ pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
+  cfg = config.programs.vscode;
+
+  vscodePname = cfg.package.pname;
+
+  configDir = {
+    "vscode" = "Code";
+    "vscode-insiders" = "Code - Insiders";
+    "vscodium" = "VSCodium";
+  }.${vscodePname};
+
+  userDir =
+    if pkgs.stdenv.hostPlatform.isDarwin then
+      "Library/Application Support/${configDir}/User"
+    else
+      "${config.xdg.configHome}/${configDir}/User";
+
+  configFilePath = "${userDir}/settings.json";
+  tasksFilePath = "${userDir}/tasks.json";
+  keybindingsFilePath = "${userDir}/keybindings.json";
+
+  snippetDir = "${userDir}/snippets";
+
+  pathsToMakeWritable = lib.flatten [
+    (lib.optional (cfg.userTasks != { }) tasksFilePath)
+    (lib.optional (cfg.userSettings != { }) configFilePath)
+    (lib.optional (cfg.keybindings != [ ]) keybindingsFilePath)
+    (lib.optional (cfg.globalSnippets != { })
+      "${snippetDir}/global.code-snippets")
+    (lib.mapAttrsToList (language: _: "${snippetDir}/${language}.json")
+      cfg.languageSnippets)
+  ];
+
+
   openvsxExtensions = with pkgs.vscode-extensions; [
     astro-build.astro-vscode
   ];
@@ -55,6 +88,10 @@ let
   ];
 in
 {
+  home.file = lib.genAttrs pathsToMakeWritable (_: {
+    force = true;
+    mutable = true;
+  });
   home.packages = home_packages;
   programs.vscode = {
     enable = true;

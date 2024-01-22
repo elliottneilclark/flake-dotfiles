@@ -4,6 +4,7 @@
     homeModules = {
       common = {
         imports = [
+          ./mutability.nix
           ./git.nix
           ./eza.nix
           ./zsh.nix

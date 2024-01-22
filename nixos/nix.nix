@@ -30,6 +30,7 @@
         "aarch64-darwin"
       ];
       experimental-features = [
+        "auto-allocate-uids"
         "nix-command"
         "flakes"
       ];
