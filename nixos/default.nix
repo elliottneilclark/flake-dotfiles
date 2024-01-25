@@ -1,11 +1,16 @@
-{ self, ... }:
+{ self, inputs, system, ... }:
 
+let
+  inherit (inputs) agenix;
+  inherit inputs;
+in
 {
   # Configuration common to all Linux systems
   flake = {
     nixosModules = {
       common = {
         imports = [
+          agenix.nixosModules.age
           ./nix.nix
           ./environment.nix
         ];
@@ -17,6 +22,7 @@
           home.stateVersion = "23.11";
           imports = [
             self.homeModules.common-linux
+            agenix.homeManagerModules.default
           ];
         };
       };
@@ -35,6 +41,10 @@
           ./i3wm.nix
           ./sound.nix
           ./docker.nix
+
+          {
+            environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
+          }
         ];
         system = {
           autoUpgrade = {

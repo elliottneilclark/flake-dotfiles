@@ -2,7 +2,10 @@
 { pkgs, config, ... }:
 
 {
-  imports = [ (import ./hardware-configuration.nix) ];
+  imports = [
+    (import ./hardware-configuration.nix)
+    (import ./wireguard.nix)
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

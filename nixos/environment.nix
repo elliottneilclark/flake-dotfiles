@@ -8,6 +8,6 @@
       EDITOR = "nvim";
       VISUAL = "nvim";
     };
-    systemPackages = with pkgs; [ neovim killall ];
+    systemPackages = with pkgs; [ neovim killall age ];
   };
 }

@@ -3,7 +3,7 @@
 {
   programs = {
     fzf.enable = true;
-    #fzf.enableZshIntegration = true;
+    fzf.enableZshIntegration = true;
 
     # shell prompt
     starship = {
@@ -18,47 +18,31 @@
         EDITOR = "nvim";
         SUDO_EDITOR = "nvim";
       };
-      enableAutosuggestions = true;
+
       enableCompletion = true;
       syntaxHighlighting.enable = true;
 
+      enableAutosuggestions = true;
 
-      prezto = {
+      oh-my-zsh = {
         enable = true;
-        tmux = {
-          autoStartRemote = true;
-          autoStartLocal = false;
-        };
-        ssh.identities = [ "id_ed25519" ];
-        editor = { keymap = "vi"; };
-        color = true;
-        pmodules = [
-          # Default modules
-          "environment"
-          "terminal"
-          "editor"
-          "history"
-          "directory"
-          "spectrum"
-          "utility"
-          "completion"
-
-          # extra
-          "history-substring-search"
-          "syntax-highlighting"
-          "autosuggestions"
-
-          "ssh"
-          "tmux"
-          "docker"
+        theme = "robbyrussell";
+        plugins = [
+          "sudo"
+          "terraform"
+          "kubectl"
+          "vi-mode"
           "git"
-
+          "fzf"
         ];
-
-        extraConfig = ''
-          zstyle ':prezto:module:git:alias' skip 'yes'
-        '';
       };
+
+      history = {
+        expireDuplicatesFirst = true;
+        save = 100000000;
+        size = 1000000000;
+      };
+
 
       shellAliases = {
         ".." = "cd ..";
