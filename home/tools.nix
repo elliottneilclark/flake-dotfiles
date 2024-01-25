@@ -8,5 +8,6 @@
     unrar
     wget
     curl
+    age
   ];
 }
