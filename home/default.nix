@@ -20,8 +20,6 @@
       common-linux = {
         imports = [
           self.homeModules.common
-          ./picom.nix
-          ./i3wm.nix
           ./udiskie.nix
           ./woeusb.nix
           ./firefox.nix
@@ -29,6 +27,8 @@
           ./vscode.nix
           ./desktop-env.nix
           ./easyeffects.nix
+          ./picom.nix
+          ./i3wm.nix
         ];
       };
       common-darwin = {

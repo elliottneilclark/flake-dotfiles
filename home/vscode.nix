@@ -77,8 +77,6 @@ let
     # Sharing
     ms-vscode-remote.remote-ssh
     ms-vsliveshare.vsliveshare
-
-    sourcegraph.cody-ai
   ];
   nixpkgs-fmt = pkgs.nixpkgs-fmt;
   rnix-lsp = pkgs.rnix-lsp;
