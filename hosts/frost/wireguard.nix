@@ -2,6 +2,7 @@
 
 let
   port = 9918;
+  gateway_ip = "34.237.54.234";
 in
 {
   age.secrets.batteriesincl_wg = {
@@ -22,7 +23,7 @@ in
           publicKey = "fdjmLLICvyHpMVQMsimEQ0M+ueEN7fyHJv1muuPfskk=";
           allowedIPs = [ "100.64.0.0/16" "172.31.0.0/16" ];
 
-          endpoint = "54.173.83.106:51820";
+          endpoint = "${gateway_ip}:51820";
           persistentKeepalive = 25;
         }
       ];

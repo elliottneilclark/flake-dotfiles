@@ -38,9 +38,9 @@ in
           ./thunar.nix
           ./printing.nix
           ./gaming.nix
-          ./i3wm.nix
           ./sound.nix
           ./docker.nix
+          ./i3wm.nix
 
           {
             environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
