@@ -41,6 +41,7 @@ in
           ./sound.nix
           ./docker.nix
           ./i3wm.nix
+          ./oomd.nix
 
           {
             environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
