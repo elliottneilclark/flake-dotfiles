@@ -42,12 +42,12 @@
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, ... }:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+  outputs = inputs@{ self, nixpkgs, flake-parts, nixos-flake, treefmt-nix, home-manager, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" "aarch64-darwin" ];
       imports = [
-        inputs.treefmt-nix.flakeModule
-        inputs.nixos-flake.flakeModule
+        treefmt-nix.flakeModule
+        nixos-flake.flakeModule
         ./nixos
         ./home
         ./darwin-nix
@@ -59,9 +59,9 @@
           air = self.nixos-flake.lib.mkMacosSystem {
             nixpkgs.hostPlatform = "aarch64-darwin";
             imports = [
+              home-manager.darwinModules.home-manager
               self.nixosModules.common
               self.osxModules.common
-              self.darwinModules.home-manager
             ];
           };
         };

@@ -1,5 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, nixpkgs, ... }:
 {
+  nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     jq
     ranger
