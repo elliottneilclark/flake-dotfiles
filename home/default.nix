@@ -20,6 +20,7 @@
       common-linux = {
         imports = [
           self.homeModules.common
+          ./gaming.nix
           ./udiskie.nix
           ./woeusb.nix
           ./firefox.nix
