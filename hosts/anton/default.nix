@@ -25,7 +25,7 @@
   # Configure keymap in X11
   services.xserver = {
     videoDrivers = [ "nvidia" ];
-    layout = "us";
+    xkb.layout = "us";
     dpi = 100;
   };
   services.blueman.enable = true;

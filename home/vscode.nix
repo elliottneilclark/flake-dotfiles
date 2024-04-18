@@ -47,9 +47,6 @@ let
     # vim emulation
     vscodevim.vim
 
-    # git
-    eamodio.gitlens
-
     # nix language support
     jnoortheen.nix-ide
 
@@ -67,6 +64,8 @@ let
     # Rust
     tamasfe.even-better-toml
     serayuzgur.crates
+    vadimcn.vscode-lldb
+
 
     # Markdown
     yzhang.markdown-all-in-one
@@ -79,10 +78,8 @@ let
     ms-vsliveshare.vsliveshare
   ];
   nixpkgs-fmt = pkgs.nixpkgs-fmt;
-  rnix-lsp = pkgs.rnix-lsp;
   home_packages = [
     nixpkgs-fmt
-    rnix-lsp
   ];
 in
 {
@@ -145,7 +142,7 @@ in
         integrated = {
           fontFamily = "FiraCode";
           fontSize = 16;
-          scrollback = 5000;
+          scrollback = 6000;
 
           ignoreProcessNames = [
             "starship"
@@ -161,6 +158,7 @@ in
         useSystemClipboard = true;
         handleKeys = {
           "<C-p>" = false;
+          "<C-i>" = false;
         };
         cursorStylePerMode = {
           normal = "block";
@@ -175,7 +173,6 @@ in
       git.autofetch = true;
 
       nix.formatterPath = "${nixpkgs-fmt}/bin/nixpkgs-fmt";
-      nix.serverPath = "${rnix-lsp}/bin/rnix-lsp";
     };
 
     extensions = extensions ++ openvsxExtensions;
