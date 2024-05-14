@@ -4,6 +4,8 @@
 
 {
   xdg.portal = { enable = true; extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; };
+  services.displayManager.defaultSession = "none+i3";
+
   services.xserver = {
     enable = true;
     desktopManager = {
@@ -15,8 +17,6 @@
       };
     };
     displayManager = {
-      defaultSession = "none+i3";
-
       lightdm = {
         enable = true; # Wallpaper and GTK theme
         background =

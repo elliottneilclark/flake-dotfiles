@@ -45,7 +45,7 @@
     gc = {
       automatic = true;
     };
-    package = pkgs.nixVersions.unstable;
+    package = pkgs.nixVersions.git;
     nixPath = [ "nixpkgs=${flake.inputs.nixpkgs}" ];
 
     registry.nixpkgs.flake = flake.inputs.nixpkgs;
