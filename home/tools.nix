@@ -10,5 +10,10 @@
     wget
     curl
     age
+    whois
+    dnsutils
+    dogdns
+    fd
+    pstree
   ];
 }

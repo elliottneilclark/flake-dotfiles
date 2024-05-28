@@ -31,6 +31,7 @@
       ];
       experimental-features = [
         "auto-allocate-uids"
+        "ca-derivations"
         "nix-command"
         "flakes"
       ];
@@ -41,6 +42,8 @@
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       ];
       trusted-users = [ "root" "@wheel" "elliott" ];
+      max-jobs = 1;
+      cores = 8;
     };
     gc = {
       automatic = true;

@@ -33,7 +33,9 @@
     xkb.layout = "us";
     dpi = 100;
   };
+
   services.blueman.enable = true;
+
   services.flatpak.enable = true;
 
 
@@ -49,6 +51,7 @@
       extraPackages = with pkgs; [ nvidia-vaapi-driver ];
     };
     bluetooth.enable = true;
+    bluetooth.powerOnBoot = true;
   };
 
   environment.systemPackages = with pkgs; [
