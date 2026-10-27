@@ -2,9 +2,11 @@
 
 {
   flake = {
-    osxModules = {
+    darwinModules = {
       common = {
         imports = [
+          ../nixos/nix.nix
+          ../nixos/environment.nix
           ./users.nix
           ./environment.nix
           ./system.nix
@@ -14,20 +16,21 @@
 
         programs.zsh.enable = true;
 
-        home-manager.users.elliott = {
-          imports = [
-            self.homeModules.common
-            self.homeModules.common-darwin
-          ];
-          home.stateVersion = "23.11";
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          users.elliott = {
+            imports = [
+              self.homeModules.common-darwin
+            ];
+            home.stateVersion = "26.11";
+          };
         };
 
-        security.pam.enableSudoTouchIdAuth = true;
-        services.nix-daemon.enable = true;
+        security.pam.services.sudo_local.touchIdAuth = true;
+        system.primaryUser = "elliott";
 
-        # Used for backwards compatibility, please read the changelog before changing.
-        # $ darwin-rebuild changelog
-        system.stateVersion = 4;
+        system.stateVersion = 7;
       };
     };
   };

@@ -1,6 +1,6 @@
 # Mounting tool
 #
-{ config, ... }:
+{ ... }:
 
 {
   config = {

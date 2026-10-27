@@ -8,7 +8,7 @@ in
       enable = true;
       settings = {
         user.name = "Elliott Clark";
-        user.email = "elliott@batteriesincl.com";
+        user.email = "elliott.neil.clark@gmail.com";
         ui.default-description = template;
       };
     };

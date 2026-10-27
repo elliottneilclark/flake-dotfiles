@@ -1,16 +1,10 @@
-{ self, inputs, system, ... }:
-
-let
-  inherit (inputs) agenix;
-  inherit inputs;
-in
+{ self, ... }:
 {
   # Configuration common to all Linux systems
   flake = {
     nixosModules = {
       common = {
         imports = [
-          agenix.nixosModules.age
           ./nix.nix
           ./environment.nix
         ];
@@ -18,18 +12,20 @@ in
 
       linux-home = {
         users.users.elliott.isNormalUser = true;
-        home-manager.users.elliott = {
-          home.stateVersion = "23.11";
-          imports = [
-            self.homeModules.common-linux
-            agenix.homeManagerModules.default
-          ];
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          users.elliott = {
+            home.stateVersion = "26.11";
+            imports = [
+              self.homeModules.common-linux
+            ];
+          };
         };
       };
 
       default = {
         imports = [
-          self.nixosModules.home-manager
           self.nixosModules.linux-home
           self.nixosModules.common
           ./users.nix
@@ -40,18 +36,15 @@ in
           ./gaming.nix
           ./sound.nix
           ./docker.nix
-          ./i3wm.nix
+          ./hyprland.nix
           ./oomd.nix
 
-          {
-            environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
-          }
         ];
         system = {
           autoUpgrade = {
             enable = false;
           };
-          stateVersion = "23.11";
+          stateVersion = "26.11";
         };
       };
     };

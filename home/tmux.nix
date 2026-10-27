@@ -1,7 +1,15 @@
-{ config, pkgs, ... }:
+{ pkgs, lib, ... }:
 
+let
+  clipboardCommand =
+    if pkgs.stdenv.hostPlatform.isDarwin then
+      "/usr/bin/pbcopy"
+    else
+      "${lib.getExe' pkgs.wl-clipboard "wl-copy"}";
+in
 {
   config = {
+    home.packages = lib.optional pkgs.stdenv.hostPlatform.isLinux pkgs.wl-clipboard;
     programs.tmux = {
       enable = true;
 
@@ -18,10 +26,11 @@
       historyLimit = 5000;
 
       extraConfig = ''
-        bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "xclip -selection c"
-        bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "xclip -in -selection clipboard"
+        set-option -ga update-environment " WAYLAND_DISPLAY XDG_RUNTIME_DIR"
+        bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "${clipboardCommand}"
+        bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "${clipboardCommand}"
         bind-key -T copy-mode-vi 'v' send -X begin-selection
-        bind-key -T copy-mode-vi 'y' send -X copy-pipe-and-cancel "xclip -in -selection clipboard"
+        bind-key -T copy-mode-vi 'y' send -X copy-pipe-and-cancel "${clipboardCommand}"
 
         # easy-to-remember split pane commands
         bind | split-window -h -c "#{pane_current_path}"

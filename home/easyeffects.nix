@@ -4,11 +4,11 @@
   services.easyeffects =
     {
       enable = true;
-      preset = "optimized";
+      preset.input = "optimized";
     };
 
   # based on https://gist.github.com/MateusRodCosta/a10225eb132cdcb97d7c458526f93085
-  xdg.configFile."easyeffects/input/optimised.json".text = builtins.toJSON {
+  services.easyeffects.extraPresets.optimized = {
     input = {
       blocklist = [ ];
       plugins_order = [ "rnnoise#0" "compressor#0" "deesser#0" "speex#0" "limiter#0" ];
@@ -23,7 +23,7 @@
         boost-amount = 6.0;
         boost-threshold = -72.0;
         bypass = false;
-        dry = -100.0;
+        dry = -80.01;
         hpf-frequency = 10.0;
         hpf-mode = "off";
         input-gain = 0.0;

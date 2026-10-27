@@ -7,9 +7,6 @@
       upgrade = true;
       cleanup = "zap";
     };
-    taps = [
-      "homebrew/cask-versions"
-    ];
     brews = [
       "openjdk@17"
       "podman"

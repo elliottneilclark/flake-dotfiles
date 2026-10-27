@@ -1,22 +1,13 @@
-{ flake, pkgs, lib, ... }:
+{ inputs, pkgs, ... }:
 
 {
 
   nixpkgs = {
     config = {
-      allowBroken = true;
-      allowUnsupportedSystem = true;
-      allowUnfreePredicate = pkg:
-        builtins.elem (lib.getName pkg) [
-          "steam"
-          "steam-original"
-          "steam-runtime"
-        ];
       allowUnfree = true;
     };
     overlays = [
-      flake.inputs.jj.overlays.default
-      flake.inputs.nix-vscode-extensions.overlays.default
+      inputs.nix-vscode-extensions.overlays.default
     ];
   };
 
@@ -25,10 +16,6 @@
   nix = {
     settings = {
       auto-optimise-store = true;
-      extra-platforms = lib.mkIf (pkgs.system == "aarch64-darwin") [
-        "x86_64-linux"
-        "aarch64-darwin"
-      ];
       experimental-features = [
         "auto-allocate-uids"
         "ca-derivations"
@@ -48,10 +35,10 @@
     gc = {
       automatic = true;
     };
-    package = pkgs.nixVersions.git;
-    nixPath = [ "nixpkgs=${flake.inputs.nixpkgs}" ];
+    package = pkgs.nixVersions.latest;
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
-    registry.nixpkgs.flake = flake.inputs.nixpkgs;
+    registry.nixpkgs.flake = inputs.nixpkgs;
   };
 
 }

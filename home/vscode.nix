@@ -1,41 +1,9 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 
 let
-  cfg = config.programs.vscode;
-
-  vscodePname = cfg.package.pname;
-
-  configDir = {
-    "vscode" = "Code";
-    "vscode-insiders" = "Code - Insiders";
-    "vscodium" = "VSCodium";
-  }.${vscodePname};
-
-  userDir =
-    if pkgs.stdenv.hostPlatform.isDarwin then
-      "Library/Application Support/${configDir}/User"
-    else
-      "${config.xdg.configHome}/${configDir}/User";
-
-  configFilePath = "${userDir}/settings.json";
-  tasksFilePath = "${userDir}/tasks.json";
-  keybindingsFilePath = "${userDir}/keybindings.json";
-
-  snippetDir = "${userDir}/snippets";
-
-  pathsToMakeWritable = lib.flatten [
-    (lib.optional (cfg.userTasks != { }) tasksFilePath)
-    (lib.optional (cfg.userSettings != { }) configFilePath)
-    (lib.optional (cfg.keybindings != [ ]) keybindingsFilePath)
-    (lib.optional (cfg.globalSnippets != { })
-      "${snippetDir}/global.code-snippets")
-    (lib.mapAttrsToList (language: _: "${snippetDir}/${language}.json")
-      cfg.languageSnippets)
-  ];
-
-
   openvsxExtensions = with pkgs.vscode-extensions; [
     astro-build.astro-vscode
+    vadimcn.vscode-lldb
   ];
   extensions = with pkgs.vscode-marketplace; [
     # theme
@@ -64,7 +32,6 @@ let
     # Rust
     tamasfe.even-better-toml
     serayuzgur.crates
-    vadimcn.vscode-lldb
 
 
     # Markdown
@@ -83,10 +50,6 @@ let
   ];
 in
 {
-  home.file = lib.genAttrs pathsToMakeWritable (_: {
-    force = true;
-    mutable = true;
-  });
   home.packages = home_packages;
   programs.vscode = {
     enable = true;
@@ -94,10 +57,11 @@ in
     package = pkgs.vscode;
 
     mutableExtensionsDir = true;
-    enableUpdateCheck = false;
-    enableExtensionUpdateCheck = false;
+    profiles.default.mutableUserSettings = true;
+    profiles.default.enableUpdateCheck = false;
+    profiles.default.enableExtensionUpdateCheck = false;
 
-    userSettings = {
+    profiles.default.userSettings = {
       files.insertFinalNewline = true;
       files.trimFinalNewlines = true;
       files.trimTrailingWhitespace = true;
@@ -175,6 +139,6 @@ in
       nix.formatterPath = "${nixpkgs-fmt}/bin/nixpkgs-fmt";
     };
 
-    extensions = extensions ++ openvsxExtensions;
+    profiles.default.extensions = extensions ++ openvsxExtensions;
   };
 }

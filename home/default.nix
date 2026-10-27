@@ -4,11 +4,11 @@
     homeModules = {
       common = {
         imports = [
-          ./mutability.nix
           ./git.nix
           ./eza.nix
           ./zsh.nix
           ./direnv.nix
+          ./mise.nix
           ./jj.nix
           ./ssh.nix
           ./neovim.nix
@@ -28,13 +28,17 @@
           ./vscode.nix
           ./desktop-env.nix
           ./easyeffects.nix
-          ./picom.nix
-          ./i3wm.nix
+          ./hyprland.nix
         ];
       };
       common-darwin = {
         imports = [
           self.homeModules.common
+        ];
+        home.sessionPath = [
+          "/etc/profiles/per-user/$USER/bin"
+          "/nix/var/nix/profiles/system/sw/bin"
+          "/usr/local/bin"
         ];
       };
     };

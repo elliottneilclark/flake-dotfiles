@@ -1,7 +1,8 @@
-{ pkgs, nixpkgs, ... }:
+{ pkgs, ... }:
 {
-  nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
+    omp
+    claude-code
     jq
     ranger
     unzip
@@ -12,7 +13,7 @@
     age
     whois
     dnsutils
-    dogdns
+    doggo
     fd
     pstree
   ];

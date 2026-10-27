@@ -13,22 +13,16 @@
     };
     git = {
       enable = true;
-      userName = "Elliott Clark";
-      userEmail = "elliott@batteriesincl.com";
-      aliases = {
+      settings.user = {
+        name = "Elliott Clark";
+        email = "elliott.neil.clark@gmail.com";
+      };
+      settings.alias = {
         a = "add";
         co = "checkout";
         st = "status";
         ll = "log -p";
         sl = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all --since='90 days ago'";
-      };
-      delta = {
-        enable = true;
-        options = {
-          syntax-theme = "Nord";
-          line-numbers = true;
-          decorations = true;
-        };
       };
       ignores = [
         # IntelliJ files and folders
@@ -53,13 +47,22 @@
         "flycheck_*.py"
       ];
       lfs.enable = true;
-      extraConfig = {
+      settings = {
         core.editor = "nvim";
         color.ui = "auto";
         commit.template = "${config.xdg.configHome}/git/commit.template";
         init = { defaultBranch = "master"; };
       };
 
+    };
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
+      options = {
+        syntax-theme = "Nord";
+        line-numbers = true;
+        decorations = true;
+      };
     };
   };
 
