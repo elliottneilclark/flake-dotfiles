@@ -8,6 +8,7 @@
       EDITOR = "nvim";
       VISUAL = "nvim";
     };
-    systemPackages = with pkgs; [ neovim killall age ];
+    # Python is available system-wide for omp's tools.
+    systemPackages = with pkgs; [ neovim killall age python3 ];
   };
 }

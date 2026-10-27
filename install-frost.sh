@@ -64,6 +64,7 @@ read -r confirmation
 
 work=$(mktemp -d /tmp/frost-install.XXXXXX)
 target=$work/target
+chmod 755 "${work}"
 cleanup() {
   if mountpoint -q "$target/boot/efi"; then umount "$target/boot/efi" || return; fi
   if mountpoint -q "$target"; then umount "$target" || return; fi
