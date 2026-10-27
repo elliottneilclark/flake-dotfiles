@@ -3,7 +3,9 @@
 # Boot it on Frost to check the hardware before installing to the NVMe.
 # The live system uses RAM/USB mounts only; it does not mount the internal EFI partition.
 # Guest login: elliott / frost-live.
-{ config, lib, ... }:
+# After cloning the repo: sudo bash ./install-frost.sh (--check validates targets only).
+# Installation erases Ubuntu root, preserves EFI, and sets only elliott's password.
+{ config, lib, pkgs, ... }:
 
 {
   networking.hostName = lib.mkForce "frost-live";
@@ -15,6 +17,9 @@
   # Keep all physical NVMe mounts and swap out of the live system.
   fileSystems = lib.mkForce config.lib.isoFileSystems;
   swapDevices = lib.mkForce [ ];
+
+  # The installer needs mkfs.ext4 without fetching tools at installation time.
+  environment.systemPackages = [ pkgs.e2fsprogs ];
 
   home-manager.users.elliott = {
     # No private SSH keys are copied onto this disposable medium.
