@@ -1,5 +1,5 @@
 {
-  # Check all outputs: nix flake check --all-systems path:.
+  # Check all outputs: nix flake check --all-systems
   # Update pinned inputs: nix flake update
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
