@@ -15,6 +15,8 @@ in
   boot.loader.systemd-boot.editor = false;
   boot.loader.systemd-boot.consoleMode = "max";
   boot.loader.systemd-boot.memtest86.enable = false;
+  # Windows has a separate ESP; use map -c in the shell to discover its HD handle.
+  boot.loader.systemd-boot.edk2-uefi-shell.enable = true;
 
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";

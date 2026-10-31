@@ -3,11 +3,12 @@
   # Configuration common to all Linux systems
   flake = {
     nixosModules = {
-      common = {
+      common = { pkgs, ... }: {
         imports = [
           ./nix.nix
           ./environment.nix
         ];
+        boot.kernelPackages = pkgs.linuxPackages_latest;
       };
 
       linux-home = {

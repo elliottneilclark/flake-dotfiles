@@ -10,6 +10,11 @@
     nix-darwin.url = "github:lnl7/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.2.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -56,13 +61,23 @@
               ./hosts/frost
             ];
           };
+          slate = inputs.nixpkgs.lib.nixosSystem {
+            specialArgs = { inherit inputs; };
+            modules = [
+              home-manager.nixosModules.home-manager
+              inputs.lanzaboote.nixosModules.lanzaboote
+              self.nixosModules.default
+              ./hosts/slate
+            ];
+          };
         };
       };
 
       perSystem = { config, lib, system, ... }: {
-        # Bootable live image of frost: nix build .#frost-iso
+        # Bootable live images: nix build .#frost-iso or .#slate-iso
         packages = lib.optionalAttrs (system == "x86_64-linux") {
           frost-iso = self.nixosConfigurations.frost.config.system.build.images.iso;
+          slate-iso = self.nixosConfigurations.slate.config.system.build.images.iso;
         };
         treefmt.config = {
           # Formatting is source-only; check it once on Linux.
