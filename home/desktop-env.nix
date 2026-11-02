@@ -8,7 +8,7 @@
     font = { name = "FiraCode Nerd Font"; };
 
     iconTheme = {
-      name = "Nordzy";
+      name = "Nordzy-dark";
       package = pkgs.nordzy-icon-theme;
     };
 
@@ -33,7 +33,7 @@
   home = {
     pointerCursor = {
       enable = true;
-      name = "Nordzy-white-cursors";
+      name = "Nordzy-cursors-white";
       package = pkgs.nordzy-cursor-theme;
       size = 24;
       gtk.enable = true;

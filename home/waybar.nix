@@ -10,7 +10,7 @@
       spacing = 12;
       modules-left = [ "hyprland/workspaces" "hyprland/window" ];
       modules-center = [ "clock" ];
-      modules-right = [ "mpris" "pulseaudio" "network" "bluetooth" "tray" "custom/session" ];
+      modules-right = [ "mpris" "pulseaudio" "tray" "custom/session" ];
       "hyprland/workspaces" = {
         on-click = "activate";
         format = "{name}";
@@ -34,18 +34,6 @@
         on-click-right = "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         tooltip-format = "{desc}\nClick: audio control; right: mute; scroll: volume";
       };
-      network = {
-        format-wifi = "Wi-Fi {essid}";
-        format-ethernet = "LAN";
-        format-disconnected = "Offline";
-        tooltip-format = "{ifname}: {ipaddr}\nNetwork connections: click or use tray";
-        on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
-      };
-      bluetooth = {
-        format = "BT {status}";
-        format-connected = "BT {num_connections}";
-        on-click = "${pkgs.blueman}/bin/blueman-manager";
-      };
       tray = { icon-size = 18; spacing = 8; };
       "custom/session" = {
         format = "Session";
@@ -68,7 +56,7 @@
       #workspaces button:hover { background: #3b4252; }
       #window { color: #d8dee9; }
       #custom-session { padding-right: 12px; color: #88c0d0; }
-      #pulseaudio.muted, #network.disconnected { color: #ebcb8b; }
+      #pulseaudio.muted { color: #ebcb8b; }
       tooltip { background: #3b4252; border: 1px solid #88c0d0; }
       tooltip label { color: #eceff4; }
     '';

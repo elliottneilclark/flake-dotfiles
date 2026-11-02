@@ -198,7 +198,7 @@ in
     };
     dunst = {
       enable = true;
-      iconTheme = { name = "Nordzy"; package = pkgs.nordzy-icon-theme; };
+      iconTheme = { name = "Nordzy-dark"; package = pkgs.nordzy-icon-theme; };
       settings = {
         global = {
           font = "FiraCode Nerd Font 11";
