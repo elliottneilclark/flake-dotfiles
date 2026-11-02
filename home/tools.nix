@@ -2,7 +2,6 @@
 {
   home.packages = with pkgs; [
     omp
-    claude-code
     jq
     ranger
     unzip
@@ -17,4 +16,15 @@
     fd
     pstree
   ];
+
+  programs.claude-code = {
+    enable = true;
+    mutableSettings = true;
+    # Disable commit, PR, and session-link attribution.
+    settings.attribution = {
+      commit = "";
+      pr = "";
+      sessionUrl = false;
+    };
+  };
 }
