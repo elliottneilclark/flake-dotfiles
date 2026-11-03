@@ -1,4 +1,4 @@
-inputs: { config, pkgs, ... }:
+inputs: { config, lib, pkgs, ... }:
 {
   home.packages = with pkgs; [
     omp
@@ -33,17 +33,24 @@ inputs: { config, pkgs, ... }:
     };
   };
 
-  # Back up an existing config before activation; Home Manager replaces manual changes.
-  home.file.".omp/agent/config.yml".text = ''
-    modelRoles:
-      default: openai-codex/gpt-6.1-terra
-      slow: openai-codex/gpt-6-astra:high
-      smol: openai-codex/gpt-6.1-terra:high
-    symbolPreset: nerd
-    composer:
-      shape: band
-    theme:
-      dark: titanium
-    defaultThinkingLevel: auto
+  # omp needs a writable config, so seed it once instead of linking it from the store.
+  # A symlink left by an older generation is replaced; a real file is kept.
+  home.activation.ompConfig = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+    cfg="$HOME/.omp/agent/config.yml"
+    if [ ! -f "$cfg" ] || [ -L "$cfg" ]; then
+      run rm -f "$cfg"
+      run install -Dm644 ${pkgs.writeText "omp-config.yml" ''
+        modelRoles:
+          default: openai-codex/gpt-6.1-terra
+          slow: openai-codex/gpt-6-astra:high
+          smol: openai-codex/gpt-6.1-terra:high
+        symbolPreset: nerd
+        composer:
+          shape: band
+        theme:
+          dark: titanium
+        defaultThinkingLevel: auto
+      ''} "$cfg"
+    fi
   '';
 }
