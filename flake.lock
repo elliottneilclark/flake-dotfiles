@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "asd-ste100": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1787425541,
+        "narHash": "sha256-iXGcc8zQB/UVd9MHuWZnbgZVN14ZfRAH0uS1tWL8jTg=",
+        "owner": "nuelcyoung",
+        "repo": "asd-ste100",
+        "rev": "3fe2ccb51b1a98fb8d40aa88ec448575b8439ddb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nuelcyoung",
+        "repo": "asd-ste100",
+        "type": "github"
+      }
+    },
     "crane": {
       "locked": {
         "lastModified": 1789760033,
@@ -176,6 +192,7 @@
     },
     "root": {
       "inputs": {
+        "asd-ste100": "asd-ste100",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",

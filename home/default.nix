@@ -1,4 +1,4 @@
-{ self, ... }:
+{ self, inputs, ... }:
 {
   flake = {
     homeModules = {
@@ -14,7 +14,7 @@
           ./neovim.nix
           ./tmux.nix
           ./btop.nix
-          ./tools.nix
+          (import ./tools.nix inputs)
         ];
       };
       common-linux = {
