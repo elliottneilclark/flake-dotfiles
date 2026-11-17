@@ -2,7 +2,6 @@
 
 let
   openvsxExtensions = with pkgs.vscode-extensions; [
-    astro-build.astro-vscode
     vadimcn.vscode-lldb
   ];
   extensions = with pkgs.vscode-marketplace; [
