@@ -64,7 +64,7 @@
     openssh.authorizedKeys.keys = lib.mkForce [ ];
   };
   services.greetd.settings.initial_session = {
-    command = "${lib.getExe config.programs.uwsm.package} start -e -D Hyprland hyprland.desktop";
+    command = "${lib.getExe config.programs.uwsm.package} start -e -D Hyprland Hyprland";
     user = "elliott";
   };
   services.openssh = {

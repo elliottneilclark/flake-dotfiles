@@ -1,7 +1,8 @@
 inputs: { config, lib, pkgs, ... }:
 {
   home.packages = with pkgs; [
-    omp
+    # The pinned nixpkgs omp derivation omits dependencies required by Rust crates.
+    (omp.overrideAttrs (old: { buildInputs = old.buildInputs ++ [ zstd oniguruma ]; }))
     jq
     ranger
     unzip

@@ -9,13 +9,20 @@
 
   # No --sessions: the bare hyprland.desktop entry would start outside UWSM and
   # never reach graphical-session.target, so only the UWSM command is offered.
+  # The Hyprland binary is launched directly rather than through hyprland.desktop,
+  # whose Exec is start-hyprland. That wrapper relaunches a dead compositor in
+  # --safe-mode with no config, while every client has already died with the
+  # Wayland socket, which leaves a half-alive session with no keybinds or bar.
+  # Without it the uwsm unit fails and the session ends, so greetd comes back
+  # and a fresh login rebuilds everything. misc.disable_watchdog_warning in the
+  # home config silences Hyprland's nag about not using the wrapper.
   services.greetd = {
     enable = true;
     useTextGreeter = true;
     settings.default_session.command = lib.concatStringsSep " " [
       (lib.getExe pkgs.tuigreet)
       "--time --remember"
-      "--cmd '${lib.getExe config.programs.uwsm.package} start -e -D Hyprland hyprland.desktop'"
+      "--cmd '${lib.getExe config.programs.uwsm.package} start -e -D Hyprland Hyprland'"
     ];
   };
 

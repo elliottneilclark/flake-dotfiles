@@ -18,6 +18,18 @@
       fsType = "vfat";
     };
 
+  fileSystems."/run/media/elliott/Seagate" = {
+    device = "/dev/disk/by-uuid/4823f72d-2169-4fe4-aba9-19888494d521";
+    fsType = "ext4";
+    options = [ "nofail" "noauto" "x-systemd.automount" ];
+  };
+
+  fileSystems."/run/media/elliott/Seagate Portable Drive" = {
+    device = "/dev/disk/by-uuid/F67AFE1E012D6930";
+    fsType = "ntfs3";
+    options = [ "uid=1000" "gid=100" "nofail" "noauto" "x-systemd.automount" ];
+  };
+
   # NixOS creates the swap file on first boot when it is missing or not 8192 MiB.
   swapDevices = [{ device = "/swap.img"; size = 8192; }];
 

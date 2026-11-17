@@ -77,7 +77,13 @@ in
           disable_hyprland_logo = true;
           disable_splash_rendering = true;
           background_color = "rgb(2e3440)";
+          # Hyprland is launched directly, not via start-hyprland (nixos/hyprland.nix).
+          disable_watchdog_warning = true;
         };
+        # Hyprland's own log lives in $XDG_RUNTIME_DIR and vanishes on reboot, which
+        # is why five compositor deaths left no evidence. Mirror it to the journal:
+        # journalctl --user -u 'wayland-wm@*' -b -1
+        debug.enable_stdout_logs = true;
       };
       window_rule = [
         { name = "float-audio-control"; match.class = "org.pulseaudio.pavucontrol"; float = true; }
@@ -180,6 +186,9 @@ in
     hypridle = {
       enable = true;
       settings = {
+        # DPMS was once suspected of killing the compositor, but the journal showed
+        # the deaths followed HDMI-A-1 hot-unplugging itself regardless of DPMS
+        # (see hosts/frost/default.nix for the NVIDIA FRL fix), so the listener stays.
         general = {
           lock_cmd = "${pkgs.procps}/bin/pidof hyprlock || ${lib.getExe pkgs.hyprlock}";
           before_sleep_cmd = lock;

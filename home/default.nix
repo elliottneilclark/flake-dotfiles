@@ -16,6 +16,7 @@
           ./btop.nix
           (import ./tools.nix inputs)
         ];
+        home.sessionVariables.OTTR_ACCEPT_ANDROID_LICENSE = "1";
       };
       common-linux = {
         imports = [
