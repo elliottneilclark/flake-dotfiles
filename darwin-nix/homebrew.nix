@@ -5,7 +5,7 @@
     onActivation = {
       autoUpdate = true;
       upgrade = true;
-      cleanup = "zap";
+      cleanup = "none";
     };
     brews = [
       "openjdk@17"

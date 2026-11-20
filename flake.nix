@@ -45,7 +45,8 @@
 
       flake = {
         darwinConfigurations = {
-          # Activate with: sudo darwin-rebuild switch --flake .#air
+          # First activation: nix run nix-darwin -- switch --flake .#air
+          # Later: darwin-rebuild switch --flake .#air
           air = nix-darwin.lib.darwinSystem {
             specialArgs = { inherit inputs; };
             modules = [

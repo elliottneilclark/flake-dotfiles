@@ -8,7 +8,6 @@
           ./eza.nix
           ./zsh.nix
           ./direnv.nix
-          ./mise.nix
           ./jj.nix
           ./ssh.nix
           ./neovim.nix
@@ -17,6 +16,7 @@
           (import ./tools.nix inputs)
         ];
         home.sessionVariables.OTTR_ACCEPT_ANDROID_LICENSE = "1";
+        home.sessionVariables.OTTR_ACCEPT_CHROME_LICENSE = "1";
       };
       common-linux = {
         imports = [

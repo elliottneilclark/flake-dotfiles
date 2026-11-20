@@ -19,6 +19,7 @@
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
+          backupFileExtension = "before-nix";
           users.elliott = {
             imports = [
               self.homeModules.common-darwin
