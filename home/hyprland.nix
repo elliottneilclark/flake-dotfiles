@@ -1,4 +1,4 @@
-{ lib, pkgs, osConfig, ... }:
+{ config, lib, pkgs, osConfig, ... }:
 let
   sessionMenu = pkgs.writeShellApplication {
     name = "desktop-session-menu";
@@ -94,7 +94,7 @@ in
     extraConfig = ''
       hl.bind("SUPER + Return", hl.dsp.exec_cmd("${pkgs.uwsm}/bin/uwsm app -- ${pkgs.alacritty}/bin/alacritty"), { description = "Open terminal" })
       hl.bind("SUPER + SHIFT + Return", hl.dsp.exec_cmd("${pkgs.uwsm}/bin/uwsm app -- ${pkgs.firefox}/bin/firefox"), { description = "Open browser" })
-      hl.bind("SUPER + D", hl.dsp.exec_cmd("${pkgs.fuzzel}/bin/fuzzel"), { description = "Launch application" })
+      hl.bind("SUPER + Space", hl.dsp.exec_cmd("${pkgs.fuzzel}/bin/fuzzel"), { description = "Launch application" })
       hl.bind("SUPER + E", hl.dsp.exec_cmd("${pkgs.uwsm}/bin/uwsm app -- ${osConfig.programs.thunar.finalPackage}/bin/thunar"), { description = "Open file manager" })
       hl.bind("SUPER + SHIFT + Q", hl.dsp.window.close(), { description = "Close window" })
       hl.bind("SUPER + F", hl.dsp.window.fullscreen(), { description = "Toggle fullscreen" })
@@ -135,7 +135,8 @@ in
     enable = true;
     settings = {
       main = {
-        font = "FiraCode Nerd Font:size=12";
+        font = "FiraCode Nerd Font:size=20";
+        icon-theme = config.gtk.iconTheme.name;
         terminal = "${pkgs.alacritty}/bin/alacritty";
         launch-prefix = "${pkgs.uwsm}/bin/uwsm app --";
         layer = "overlay";

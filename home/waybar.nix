@@ -37,7 +37,7 @@
       tray = { icon-size = 18; spacing = 8; };
       "custom/session" = {
         format = "Session";
-        tooltip-format = "Click: lock, suspend, logout, reboot, shutdown\nSuper+Ctrl+L: lock\nSuper+Shift+E: session menu\nPrint: area screenshot; Shift+Print: desktop\nSuper+Enter: terminal; Super+Shift+Enter: browser\nSuper+D: launcher; Super+E: files\nSuper+H/J/K/L: focus; +Shift: move\nSuper+1–0: workspace; +Shift: move window\nSuper+F: fullscreen; Super+Shift+Space: float\nSuper+Shift+Q: close; Super+mouse: move/resize\nMedia keys: volume, microphone, playback, brightness";
+        tooltip-format = "Click: lock, suspend, logout, reboot, shutdown\nSuper+Ctrl+L: lock\nSuper+Shift+E: session menu\nPrint: area screenshot; Shift+Print: desktop\nSuper+Enter: terminal; Super+Shift+Enter: browser\nSuper+Space: launcher; Super+E: files\nSuper+H/J/K/L: focus; +Shift: move\nSuper+1–0: workspace; +Shift: move window\nSuper+F: fullscreen; Super+Shift+Space: float\nSuper+Shift+Q: close; Super+mouse: move/resize\nMedia keys: volume, microphone, playback, brightness";
         on-click = "desktop-session-menu";
       };
     };
