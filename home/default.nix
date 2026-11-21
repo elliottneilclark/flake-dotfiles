@@ -32,10 +32,11 @@
           ./hyprland.nix
         ];
       };
-      common-darwin = {
+      common-darwin = { pkgs, ... }: {
         imports = [
           self.homeModules.common
         ];
+        programs.alacritty.settings.env.TERMINFO = "${pkgs.alacritty.terminfo}/share/terminfo";
         home.sessionPath = [
           "/etc/profiles/per-user/$USER/bin"
           "/nix/var/nix/profiles/system/sw/bin"
