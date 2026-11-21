@@ -6,6 +6,7 @@
         imports = [
           ./git.nix
           ./eza.nix
+          ./alacritty.nix
           ./zsh.nix
           ./direnv.nix
           ./jj.nix
@@ -25,7 +26,6 @@
           ./udiskie.nix
           ./woeusb.nix
           ./firefox.nix
-          ./alacritty.nix
           ./vscode.nix
           ./desktop-env.nix
           ./easyeffects.nix

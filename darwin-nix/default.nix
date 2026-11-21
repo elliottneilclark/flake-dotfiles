@@ -3,7 +3,7 @@
 {
   flake = {
     darwinModules = {
-      common = {
+      common = { pkgs, ... }: {
         imports = [
           ../nixos/nix.nix
           ../nixos/environment.nix
@@ -12,6 +12,8 @@
           ./system.nix
           ./homebrew.nix
         ];
+        fonts.packages = [ pkgs.nerd-fonts.fira-code ];
+        environment.systemPackages = [ pkgs.alacritty ];
 
 
         programs.zsh.enable = true;
